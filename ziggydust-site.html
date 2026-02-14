@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ZiggyDust — Back Your Artiste</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#F5F0E8;--cream:#F5F0E8;--warm:#EDE6D8;--sand:#D9CFC0;--ink:#1A1814;--inkMid:#6B6358;--inkLight:#9A9285;--amber:#C8762D;--amberFaint:#F5E6D0;--red:#C44B3F;--redFaint:#FCEAE8;--green:#3A7D5C;--greenFaint:#E5F2EC;--white:#fff}
+body{background:var(--bg);color:var(--ink);font-family:system-ui,sans-serif}
+.mono{font-family:monospace}
+.sec{padding:80px 40px}
+.sec .inner{max-width:1100px;margin:0 auto}
+.sec-dark{background:var(--ink);color:var(--cream)}
+h1{font-size:52px;font-weight:700;line-height:.95;letter-spacing:-.03em;margin-bottom:16px}
+h2{font-size:32px;font-weight:700;line-height:1;letter-spacing:-.02em;margin-bottom:12px}
+.sub{font-size:16px;color:var(--inkMid);line-height:1.6;max-width:600px}
+.sec-dark .sub{color:var(--inkLight)}
+.btn{padding:14px 32px;border:2px solid var(--ink);font-family:monospace;font-size:13px;cursor:pointer;text-transform:uppercase;letter-spacing:.05em;text-decoration:none;display:inline-block}
+.btn-fill{background:var(--ink);color:var(--cream);font-weight:600}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-light{border-color:var(--cream);background:transparent;color:var(--cream);padding:12px 28px;font-size:12px}
+.label{font-family:monospace;font-size:10px;color:var(--inkMid);text-transform:uppercase;letter-spacing:.15em;display:block;margin-bottom:12px}
+.sec-dark .label{color:var(--amber)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0}
+.amber{color:var(--amber)}
+.green{color:var(--green)}
+nav{border-bottom:2px solid var(--ink);background:var(--cream);position:sticky;top:0;z-index:100}
+nav .inner{max-width:1100px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:60px}
+nav a,nav button{font-family:monospace;font-size:10px;text-transform:uppercase;letter-spacing:.06em;cursor:pointer;text-decoration:none;color:var(--ink);border:none;background:transparent;padding:8px 14px}
+nav a.active{background:var(--ink);color:var(--cream);font-weight:600}
+.nav-btn{padding:8px 20px!important;border:1.5px solid var(--ink)!important}
+.nav-btn-fill{background:var(--ink)!important;color:var(--cream)!important;font-weight:600}
+footer{border-top:2px solid var(--ink);background:var(--ink);color:var(--cream);padding:48px 40px 32px}
+footer .inner{max-width:1100px;margin:0 auto}
+.box{border:2px solid var(--ink);padding:36px}
+.sec-dark .box{border-color:var(--inkMid)}
+.tl-row{display:flex;border-bottom:1px solid var(--sand)}
+.tl-row:last-child{border-bottom:none}
+.tl-year{width:120px;padding:24px 0;flex-shrink:0}
+.tl-content{padding:24px 0 24px 32px;border-left:2px solid var(--ink);padding-left:32px}
+.step-row{display:flex;gap:48px;align-items:flex-start}
+.step-num{font-family:monospace;font-size:56px;font-weight:700;color:var(--amber);flex-shrink:0}
+.step-item{display:flex;gap:12px;margin-bottom:10px;font-size:14px;line-height:1.6}
+.sec-dark .step-item{color:var(--inkLight)}
+.step-item .arrow{color:var(--amber);flex-shrink:0;font-family:monospace}
+.faq-q{width:100%;padding:14px 20px;border:none;background:transparent;display:flex;justify-content:space-between;align-items:center;cursor:pointer;text-align:left}
+.faq-q span{font-size:15px;font-weight:600;color:var(--ink)}
+.faq-a{padding:0 20px 16px;font-size:14px;color:var(--inkMid);line-height:1.6;border-top:1px solid var(--sand);padding-top:14px;display:none}
+.faq-item.open .faq-a{display:block}
+.faq-item{border:1.5px solid var(--sand);margin-bottom:8px;background:var(--white)}
+.faq-item.open{border-color:var(--ink)}
+.trust-grid>div{padding:24px 28px;border-right:1px solid var(--sand);border-bottom:1px solid var(--sand)}
+.trust-grid>div:nth-child(3n){border-right:none}
+.trust-grid>div:nth-child(n+4){border-bottom:none}
+.modal-bg{position:fixed;inset:0;background:rgba(26,24,20,.6);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;z-index:1000;display:none}
+.modal-bg.show{display:flex}
+.modal{background:var(--cream);border:3px solid var(--ink);width:440px}
+.modal input{width:100%;padding:10px 14px;border:2px solid var(--ink);background:var(--white);font-size:14px;outline:none;box-sizing:border-box}
+.modal label{font-family:monospace;font-size:9px;font-weight:600;color:var(--inkMid);text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:6px}
+.tab-bar{display:flex;border-bottom:2px solid var(--ink)}
+.tab-bar button{flex:1;padding:14px;border:none;font-family:monospace;font-size:12px;font-weight:600;cursor:pointer;text-transform:uppercase;letter-spacing:.08em}
+.tab-bar button.active{background:var(--ink);color:var(--cream)}
+.tab-bar button:not(.active){background:transparent;color:var(--ink)}
+.risk-box{border:2px solid var(--red);padding:28px}
+.risk-item{margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--sand)}
+.risk-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.risk-item h4{font-size:15px;font-weight:700;color:var(--red);margin-bottom:4px}
+.waterfall>div{display:flex;border-bottom:1px solid var(--sand)}
+.waterfall>div:last-child{border-bottom:none}
+.waterfall .wn{width:60px;padding:16px;display:flex;align-items:center;justify-content:center;border-right:1px solid var(--sand)}
+.page{display:none}.page.active{display:block}
+.compare-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:start;margin-top:24px}
+.compare-grid .row{padding:8px 0;border-bottom:1px solid var(--sand);font-size:13px}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="inner">
+<div style="display:flex;align-items:center;gap:32px">
+<span onclick="go('home')" style="font-size:22px;font-weight:700;letter-spacing:-.03em;cursor:pointer">ziggy<span class="amber">dust</span></span>
+<div id="navLinks"></div>
+</div>
+<div style="display:flex;gap:8px;align-items:center">
+<div style="display:flex;margin-right:8px"><button id="curUSD" class="nav-btn nav-btn-fill" onclick="setCurrency('USD')" style="border-right:none;padding:6px 12px!important;font-size:9px!important">$ USD</button><button id="curINR" class="nav-btn" onclick="setCurrency('INR')" style="padding:6px 12px!important;font-size:9px!important">₹ INR</button></div>
+<button class="nav-btn" onclick="showAuth('login')">Log In</button>
+<button class="nav-btn nav-btn-fill" onclick="showAuth('signup')">Sign Up</button>
+</div>
+</div>
+</nav>
+
+<!-- HOME -->
+<div class="page active" id="p-home">
+<div class="sec"><div class="inner" style="display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:48px;border-bottom:2px solid var(--ink)">
+<div style="max-width:600">
+<span class="label">YouTube Promotion for Independent Artists</span>
+<h1>Your music<br>deserves a<br><em class="amber">push.</em></h1>
+<p class="sub">ZiggyDust connects indie artists with backers who loan funds for YouTube ad campaigns. Backers earn interest tied to the campaign's performance. Artists keep their rights, their music, their independence.</p>
+<div style="display:flex;gap:12px;margin-top:32px">
+<button class="btn btn-fill" onclick="showAuth('signup')">Get Started</button>
+<button class="btn btn-ghost" onclick="go('how')">How It Works →</button>
+</div>
+</div>
+<div style="text-align:right">
+<div id="heroTotal" style="font-size:72px;font-weight:700;color:var(--amber);line-height:.85;letter-spacing:-.04em">$2,600</div>
+<span class="mono" style="font-size:11px;color:var(--inkMid);display:block;margin-top:8px">funded across 3 drops</span>
+<div style="margin-top:24px;display:flex;gap:16px;justify-content:flex-end">
+<div style="text-align:center"><div style="font-size:24px;font-weight:700">3</div><span class="mono" style="font-size:9px;color:var(--inkLight);text-transform:uppercase">drops</span></div>
+<div style="text-align:center"><div style="font-size:24px;font-weight:700">6</div><span class="mono" style="font-size:9px;color:var(--inkLight);text-transform:uppercase">backers</span></div>
+<div style="text-align:center"><div id="heroAdSpend" style="font-size:24px;font-weight:700">$780</div><span class="mono" style="font-size:9px;color:var(--inkLight);text-transform:uppercase">ad spend</span></div>
+</div>
+</div>
+</div></div>
+
+<div class="sec sec-dark"><div class="inner" style="display:flex;gap:0">
+<div style="flex:1;padding:0 28px;border-right:1px solid var(--inkMid)"><span class="mono" style="font-size:28px;font-weight:700;color:var(--amber);display:block;margin-bottom:12px">01</span><div style="font-size:18px;font-weight:700;margin-bottom:8px">Artist drops</div><div style="font-size:13px;color:var(--inkLight);line-height:1.6">Artist sets up a YouTube promotion, puts in ≥20% co-pay, sets revenue share terms. One active drop at a time.</div></div>
+<div style="flex:1;padding:0 28px;border-right:1px solid var(--inkMid)"><span class="mono" style="font-size:28px;font-weight:700;color:var(--amber);display:block;margin-bottom:12px">02</span><div style="font-size:18px;font-weight:700;margin-bottom:8px">Backers fund</div><div style="font-size:13px;color:var(--inkLight);line-height:1.6">Real people with real LinkedIn profiles loan funds to the artist. All money goes into a lockbox.</div></div>
+<div style="flex:1;padding:0 28px;border-right:1px solid var(--inkMid)"><span class="mono" style="font-size:28px;font-weight:700;color:var(--amber);display:block;margin-bottom:12px">03</span><div style="font-size:18px;font-weight:700;margin-bottom:8px">Ads deploy</div><div style="font-size:13px;color:var(--inkLight);line-height:1.6">Escrow funds go only to Google Ads for YouTube. Every rupee becomes an ad impression.</div></div>
+<div style="flex:1;padding:0 28px"><span class="mono" style="font-size:28px;font-weight:700;color:var(--amber);display:block;margin-bottom:12px">04</span><div style="font-size:18px;font-weight:700;margin-bottom:8px">Revenue flows</div><div style="font-size:13px;color:var(--inkLight);line-height:1.6">YouTube AdSense revenue tracked via OAuth. Incremental channel-wide uplift above baseline goes to backers — including cross-views to older content.</div></div>
+</div></div>
+
+<div class="sec"><div class="inner" style="border-bottom:2px solid var(--ink);padding-bottom:48px">
+<span class="label">Why it works</span>
+<h2>Trust is the product.</h2>
+<div class="grid3 trust-grid" style="margin-top:32px;border:2px solid var(--ink)">
+<div><div style="font-size:20px;margin-bottom:8px">👤</div><div style="font-size:16px;font-weight:700;margin-bottom:6px">Real identities</div><div style="font-size:13px;color:var(--inkMid);line-height:1.5">Every artist and backer has a mandatory LinkedIn profile. No anons.</div></div>
+<div><div style="font-size:20px;margin-bottom:8px">✓</div><div style="font-size:16px;font-weight:700;margin-bottom:6px">Verified numbers</div><div style="font-size:13px;color:var(--inkMid);line-height:1.5">YouTube stats pulled via OAuth — not self-reported. All verified.</div></div>
+<div><div style="font-size:20px;margin-bottom:8px">⬒</div><div style="font-size:16px;font-weight:700;margin-bottom:6px">The Lockbox</div><div style="font-size:13px;color:var(--inkMid);line-height:1.5">Funds can only become Google Ads. Every rupee accounted for with receipts.</div></div>
+<div><div style="font-size:20px;margin-bottom:8px">🎯</div><div style="font-size:16px;font-weight:700;margin-bottom:6px">20% skin in the game</div><div style="font-size:13px;color:var(--inkMid);line-height:1.5">Artists put in minimum 20% co-pay. First-in, first-loss.</div></div>
+<div><div style="font-size:20px;margin-bottom:8px">📊</div><div style="font-size:16px;font-weight:700;margin-bottom:6px">Track records</div><div style="font-size:13px;color:var(--inkMid);line-height:1.5">Every participant builds a public history. Past drops, payback rates — all visible.</div></div>
+<div><div style="font-size:20px;margin-bottom:8px">📋</div><div style="font-size:16px;font-weight:700;margin-bottom:6px">Ad receipts</div><div style="font-size:13px;color:var(--inkMid);line-height:1.5">Google Ads invoice references, impression counts — proof your money became promotion.</div></div>
+</div>
+</div></div>
+
+<div class="sec sec-dark"><div class="inner" style="display:flex;justify-content:space-between;align-items:center">
+<div style="max-width:560">
+<span class="label" style="color:var(--amber)">The precedent</span>
+<div style="font-size:32px;font-weight:700;line-height:1.05;margin-bottom:12px">In 1997, David Bowie turned his future royalties into $55 million.</div>
+<div style="font-size:14px;color:var(--inkLight);line-height:1.6">Bowie Bonds were the first celebrity-backed securities — and the intellectual ancestor of what we're building. Same idea, different scale, new technology.</div>
+<button class="btn-light" style="margin-top:24px;cursor:pointer;font-family:monospace" onclick="go('bowie')">Read the full story →</button>
+</div>
+<div style="text-align:right"><div style="font-size:80px;font-weight:700;color:var(--amber);line-height:.8;letter-spacing:-.04em">$55M</div><span class="mono" style="font-size:11px;color:var(--inkLight);display:block;margin-top:8px">Bowie Bonds, 1997</span></div>
+</div></div>
+
+<div class="sec"><div class="inner" style="text-align:center;padding:32px 0">
+<h2>Ready to push some sound?</h2>
+<p class="sub" style="margin:0 auto">Whether you make music or back it — this is your platform.</p>
+<div style="display:flex;gap:12px;justify-content:center;margin-top:32px">
+<button class="btn btn-fill" onclick="showAuth('signup')">Sign Up</button>
+<button class="btn btn-ghost" onclick="go('faq')">Read the FAQ</button>
+</div>
+</div></div>
+</div>
+
+<!-- BOWIE BONDS -->
+<div class="page" id="p-bowie">
+<div class="sec"><div class="inner"><span class="label">The Precedent</span><h1>Bowie Bonds</h1><p class="sub">How David Bowie invented celebrity-backed securities — and why it matters for indie music today.</p></div></div>
+<div class="sec sec-dark"><div class="inner" style="max-width:700">
+<div style="font-size:20px;font-weight:700;line-height:1.5;margin-bottom:24px">In January 1997, David Bowie did something no musician had ever done. He walked into a room with investment banker David Pullman and emerged with $55 million — not from a record deal, not from a tour, but from the future.</div>
+<div style="font-size:15px;color:var(--inkLight);line-height:1.7">Bowie securitised the future royalties of his first 25 albums — everything from "Space Oddity" to "Let's Dance." The bonds paid 7.9% annually over 10 years, backed entirely by the income those recordings would generate. Prudential Insurance bought the entire issue. It was, at the time, unprecedented.</div>
+</div></div>
+<div class="sec"><div class="inner">
+<h2>The Timeline</h2>
+<div style="margin-top:32px">
+<div class="tl-row"><div class="tl-year"><span class="mono" style="font-size:24px;font-weight:700;color:var(--amber)">1997</span></div><div class="tl-content"><div style="font-size:18px;font-weight:700;margin-bottom:6px">The Issue</div><div style="font-size:14px;color:var(--inkMid);line-height:1.6;max-width:600px">$55 million in asset-backed securities issued. Prudential Insurance buys the entire offering. Annual coupon: 7.9%. Maturity: 10 years. Collateral: royalties from 25 Bowie albums (287 songs).</div></div></div>
+<div class="tl-row"><div class="tl-year"><span class="mono" style="font-size:24px;font-weight:700;color:var(--amber)">1998–03</span></div><div class="tl-content"><div style="font-size:18px;font-weight:700;margin-bottom:6px">The Peak</div><div style="font-size:14px;color:var(--inkMid);line-height:1.6;max-width:600px">Bonds perform as expected. Moody's rates them A3. Other artists — James Brown, Ashford & Simpson, the Isley Brothers — explore similar deals.</div></div></div>
+<div class="tl-row"><div class="tl-year"><span class="mono" style="font-size:24px;font-weight:700;color:var(--amber)">2004</span></div><div class="tl-content"><div style="font-size:18px;font-weight:700;margin-bottom:6px">The Downgrade</div><div style="font-size:14px;color:var(--inkMid);line-height:1.6;max-width:600px">Napster, iTunes, streaming reshape music consumption. Moody's downgrades to Baa3 — one notch above junk. Revenue model under pressure.</div></div></div>
+<div class="tl-row"><div class="tl-year"><span class="mono" style="font-size:24px;font-weight:700;color:var(--amber)">2007</span></div><div class="tl-content"><div style="font-size:18px;font-weight:700;margin-bottom:6px">The Maturity</div><div style="font-size:14px;color:var(--inkMid);line-height:1.6;max-width:600px">Bonds mature. Repaid in full. Despite the downgrade, every bondholder got principal + coupons. Bowie used the $55M to buy back masters.</div></div></div>
+<div class="tl-row" style="border-bottom:none"><div class="tl-year"><span class="mono" style="font-size:24px;font-weight:700;color:var(--amber)">2016</span></div><div class="tl-content"><div style="font-size:18px;font-weight:700;margin-bottom:6px">The Legacy</div><div style="font-size:14px;color:var(--inkMid);line-height:1.6;max-width:600px">Bowie passes away. His estate retains full catalogue ownership — partly because the bonds let him buy back rights rather than sell them.</div></div></div>
+</div>
+</div></div>
+<div class="sec sec-dark"><div class="inner">
+<h2>What Bowie Bonds proved</h2>
+<div class="grid2" style="margin-top:24px">
+<div><div style="font-size:16px;font-weight:700;margin-bottom:6px">Creative output has financial value</div><div style="font-size:13px;color:var(--inkLight);line-height:1.6">A song generates measurable, recurring revenue. That revenue stream can be the basis for financial instruments.</div></div>
+<div><div style="font-size:16px;font-weight:700;margin-bottom:6px">You don't have to sell to monetise</div><div style="font-size:13px;color:var(--inkLight);line-height:1.6">Bowie didn't sell his catalogue. He borrowed against it. Kept ownership, got liquidity.</div></div>
+<div><div style="font-size:16px;font-weight:700;margin-bottom:6px">Revenue-backed = risk-bounded</div><div style="font-size:13px;color:var(--inkLight);line-height:1.6">Backed by actual revenue, not speculation. When the industry changed, the bonds still paid out.</div></div>
+<div><div style="font-size:16px;font-weight:700;margin-bottom:6px">Scale matters less than structure</div><div style="font-size:13px;color:var(--inkLight);line-height:1.6">The key ingredients: predictable revenue, transparent reporting, aligned incentives. Works at any scale.</div></div>
+</div>
+</div></div>
+<div class="sec"><div class="inner">
+<div class="box">
+<h2>From Bowie Bonds to ZiggyDust</h2>
+<div class="compare-grid">
+<div><span class="label" style="margin-bottom:12px">Bowie Bonds (1997)</span><div class="row" style="color:var(--inkMid)">$55M single issue</div><div class="row" style="color:var(--inkMid)">25 albums, 287 songs</div><div class="row" style="color:var(--inkMid)">Prudential (institutional)</div><div class="row" style="color:var(--inkMid)">10-year maturity</div><div class="row" style="color:var(--inkMid)">7.9% annual coupon</div><div class="row" style="color:var(--inkMid)">Traditional securitisation</div></div>
+<div style="display:flex;align-items:center;padding-top:32px"><span class="mono amber" style="font-size:24px">→</span></div>
+<div><span class="label" style="color:var(--amber);margin-bottom:12px">ZiggyDust (2026)</span><div class="row" style="font-weight:600">$500–$2,500 per drop</div><div class="row" style="font-weight:600">1 video per drop</div><div class="row" style="font-weight:600">Individual backers</div><div class="row" style="font-weight:600">4–8 month tenor</div><div class="row" style="font-weight:600">Revenue share on uplift</div><div class="row" style="font-weight:600">Platform-facilitated, no custody</div></div>
+</div>
+<div style="margin-top:24px;padding:16px;background:var(--amberFaint);border:1px solid rgba(200,118,45,.25);font-size:14px;line-height:1.6"><strong>Same DNA, different organism.</strong> Bowie Bonds proved the concept at institutional scale. ZiggyDust applies the same logic — revenue-backed, time-bounded, transparent — to independent artists and individual backers.</div>
+</div>
+</div></div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="page" id="p-how">
+<div class="sec"><div class="inner"><span class="label">The Mechanics</span><h1>How It Works</h1><p class="sub">Four steps. Artist creates, backers fund, ads deploy, revenue flows.</p></div></div>
+<div class="sec"><div class="inner"><div class="step-row"><div class="step-num">01</div><div style="flex:1"><div style="font-size:28px;font-weight:700;margin-bottom:20px">Artist creates a drop</div><div class="step-item"><span class="arrow">→</span>Upload your YouTube video link and connect via OAuth</div><div class="step-item"><span class="arrow">→</span>Set your total budget (e.g. $1,500)</div><div class="step-item"><span class="arrow">→</span>Put in your co-pay — minimum 20% of budget</div><div class="step-item"><span class="arrow">→</span>Set backer terms: revenue share %, return cap, tenor, minimum ticket size</div><div class="step-item"><span class="arrow">→</span>Your co-pay goes into the Lockbox first — you eat before backers do</div><div class="step-item"><span class="arrow">→</span>One active drop per artist at a time — complete or close your current drop before creating a new one</div></div></div></div></div>
+<div class="sec sec-dark"><div class="inner"><div class="step-row"><div class="step-num">02</div><div style="flex:1"><div style="font-size:28px;font-weight:700;margin-bottom:20px">Backers commit funds</div><div class="step-item"><span class="arrow">→</span>Browse live drops — see artist profiles, YouTube stats, and terms</div><div class="step-item"><span class="arrow">→</span>Every backer has a mandatory LinkedIn profile — real people only</div><div class="step-item"><span class="arrow">→</span>Commit funds to drops you believe in. Money enters the Lockbox</div><div class="step-item"><span class="arrow">→</span>See the full Backer Wall with names, LinkedIn, track records</div><div class="step-item"><span class="arrow">→</span>Once the goal is hit, the drop goes live</div></div></div></div></div>
+<div class="sec"><div class="inner"><div class="step-row"><div class="step-num">03</div><div style="flex:1"><div style="font-size:28px;font-weight:700;margin-bottom:20px">Ads deploy to YouTube</div><div class="step-item"><span class="arrow">→</span>Lockbox funds released exclusively to Google Ads</div><div class="step-item"><span class="arrow">→</span>Pre-roll, discovery, Shorts — all YouTube ad formats</div><div class="step-item"><span class="arrow">→</span>Every deployment tracked: spend, impressions, views, CTR</div><div class="step-item"><span class="arrow">→</span>Google Ads invoice references visible to all backers</div><div class="step-item"><span class="arrow">→</span>Zero discretion — money can only become ads for this specific video</div></div></div></div></div>
+<div class="sec sec-dark"><div class="inner"><div class="step-row"><div class="step-num">04</div><div style="flex:1"><div style="font-size:28px;font-weight:700;margin-bottom:20px">Revenue flows back</div><div class="step-item"><span class="arrow">→</span>Channel-wide YouTube AdSense revenue tracked via OAuth API — daily</div><div class="step-item"><span class="arrow">→</span>Baseline: 30-day channel average before campaign launch</div><div class="step-item"><span class="arrow">→</span>Only incremental uplift above baseline counts — including cross-views to older content</div><div class="step-item"><span class="arrow">→</span>Artist repays loan principal first, then pays interest (share % of channel uplift) monthly</div><div class="step-item"><span class="arrow">→</span>Ends when cap is hit or tenor expires — whichever first</div></div></div></div></div>
+<div class="sec"><div class="inner" style="text-align:center"><h2>Convinced?</h2><p class="sub" style="margin:0 auto">Join as an artist or a backer.</p><button class="btn btn-fill" style="margin-top:24px" onclick="showAuth('signup')">Sign Up</button></div></div>
+</div>
+
+<!-- FOR ARTISTS -->
+<div class="page" id="p-artists">
+<div class="sec"><div class="inner"><span class="label">For Artists</span><h1>Get your music<br><em class="amber">heard.</em></h1><p class="sub">You've made something great. Now it needs ears. ZiggyDust funds YouTube promotion — backed by people who believe in your sound.</p></div></div>
+<div class="sec sec-dark"><div class="inner">
+<h2>What you need</h2>
+<div class="grid3" style="margin-top:24px;border:2px solid var(--inkMid)">
+<div style="padding:20px 24px;border-right:1px solid var(--inkMid);border-bottom:1px solid var(--inkMid)"><div style="font-size:15px;font-weight:700;margin-bottom:6px">YouTube Partner Program</div><div style="font-size:13px;color:var(--inkLight);line-height:1.5">Active monetisation. Verified via OAuth.</div></div>
+<div style="padding:20px 24px;border-right:1px solid var(--inkMid);border-bottom:1px solid var(--inkMid)"><div style="font-size:15px;font-weight:700;margin-bottom:6px">A release to promote</div><div style="font-size:13px;color:var(--inkLight);line-height:1.5">One video per drop, one active drop at a time. Single, MV, lyric video.</div></div>
+<div style="padding:20px 24px;border-bottom:1px solid var(--inkMid)"><div style="font-size:15px;font-weight:700;margin-bottom:6px">20% co-pay</div><div style="font-size:13px;color:var(--inkLight);line-height:1.5">First-in, first-loss. Your skin in the game.</div></div>
+<div style="padding:20px 24px;border-right:1px solid var(--inkMid)"><div style="font-size:15px;font-weight:700;margin-bottom:6px">LinkedIn profile</div><div style="font-size:13px;color:var(--inkLight);line-height:1.5">Real identity required. Backers see you.</div></div>
+<div style="padding:20px 24px;border-right:1px solid var(--inkMid)"><div style="font-size:15px;font-weight:700;margin-bottom:6px">Revenue share terms</div><div style="font-size:13px;color:var(--inkLight);line-height:1.5">You set the %, cap, and tenor.</div></div>
+<div style="padding:20px 24px"><div style="font-size:15px;font-weight:700;margin-bottom:6px">Google Ads account</div><div style="font-size:13px;color:var(--inkLight);line-height:1.5">Where lockbox funds deploy to.</div></div>
+</div>
+</div></div>
+<div class="sec"><div class="inner">
+<h2>What you keep</h2>
+<div style="margin-top:20px;font-size:15px;line-height:1.8;color:var(--inkMid);max-width:600px">
+<div style="margin-bottom:12px"><strong style="color:var(--ink)">Your rights.</strong> No licence transfers, no ownership changes, no creative control.</div>
+<div style="margin-bottom:12px"><strong style="color:var(--ink)">Your revenue above the share.</strong> After backers get their cut, everything else is yours.</div>
+<div style="margin-bottom:12px"><strong style="color:var(--ink)">Your relationships.</strong> Backers are music people — your community, not creditors.</div>
+<div><strong style="color:var(--ink)">Your freedom.</strong> Once cap is hit or tenor expires, you're done.</div>
+</div>
+<button class="btn btn-fill" style="margin-top:32px" onclick="showAuth('signup')">Create your first drop</button>
+</div></div>
+</div>
+
+<!-- FOR BACKERS -->
+<div class="page" id="p-backers">
+<div class="sec"><div class="inner"><span class="label">For Backers</span><h1>Back the music<br>you <em class="amber">believe in.</em></h1><p class="sub">Loan funds for YouTube promotion of independent artists. Earn interest tied to campaign performance.</p></div></div>
+<div class="sec sec-dark"><div class="inner">
+<h2>What you get</h2>
+<div class="grid2" style="margin-top:24px">
+<div><div style="font-size:16px;font-weight:700;margin-bottom:6px">Revenue share on uplift</div><div style="font-size:13px;color:var(--inkLight);line-height:1.6">Your funds are a performance-linked loan. You earn interest — a % of incremental channel-wide YouTube revenue above the pre-campaign baseline, including cross-views to older content. Principal is repaid first.</div></div>
+<div><div style="font-size:16px;font-weight:700;margin-bottom:6px">Capped returns</div><div style="font-size:13px;color:var(--inkLight);line-height:1.6">Every drop has a return cap (e.g. 1.5x). Bounds upside, clarifies the deal.</div></div>
+<div><div style="font-size:16px;font-weight:700;margin-bottom:6px">Full transparency</div><div style="font-size:13px;color:var(--inkLight);line-height:1.6">OAuth-verified stats, Google Ads receipts, monthly payout reports.</div></div>
+<div><div style="font-size:16px;font-weight:700;margin-bottom:6px">Real people</div><div style="font-size:13px;color:var(--inkLight);line-height:1.6">Every artist has LinkedIn + verified YouTube. You know who you're backing.</div></div>
+</div>
+</div></div>
+<div class="sec"><div class="inner">
+<h2>The risks — plainly stated</h2>
+<div class="risk-box" style="margin-top:20px">
+<div class="risk-item"><h4>Total loss is possible</h4><div style="font-size:13px;color:var(--inkMid);line-height:1.6">If ads don't generate uplift, your loan may not be repaid.</div></div>
+<div class="risk-item"><h4>Revenue depends on external factors</h4><div style="font-size:13px;color:var(--inkMid);line-height:1.6">YouTube algorithm, ad markets, audience behaviour — none controlled.</div></div>
+<div class="risk-item"><h4>Artist default risk</h4><div style="font-size:13px;color:var(--inkMid);line-height:1.6">If an artist stops repaying the loan, enforcement is through platform exclusion and public record — not courts.</div></div>
+<div class="risk-item"><h4>This is not a security</h4><div style="font-size:13px;color:var(--inkMid);line-height:1.6">Your funds are a performance-linked loan to the artist — not an equity stake, not a royalty purchase. We don't hold money.</div></div>
+</div>
+<button class="btn btn-fill" style="margin-top:32px" onclick="showAuth('signup')">Start backing</button>
+</div></div>
+</div>
+
+<!-- ECONOMICS -->
+<div class="page" id="p-economics">
+<div class="sec"><div class="inner"><span class="label">Deep Dive</span><h1>The Economics</h1><p class="sub">How YouTube ad revenue works, what uplift means, and realistic return scenarios.</p></div></div>
+<div class="sec sec-dark"><div class="inner">
+<h2>How YouTube AdSense works</h2>
+<div style="margin-top:20px;font-size:14px;color:var(--inkLight);line-height:1.7;max-width:650px">
+<p style="margin-bottom:16px">When a monetised video plays an ad, the creator earns revenue. YouTube takes ~45%, creator keeps ~55%. Revenue measured as RPM — earnings per 1,000 views.</p>
+<p style="margin-bottom:16px">Music content typically generates RPMs between $0.25–$4.00. An artist with 10,000 daily views at $2.00 RPM earns ~$20/day or $600/month.</p>
+<p>ZiggyDust tracks this via YouTube's Analytics API, authenticated via OAuth. Read-only access. We observe, we don't touch.</p>
+</div>
+</div></div>
+<div class="sec"><div class="inner">
+<h2>The baseline</h2>
+<div style="font-size:14px;color:var(--inkMid);line-height:1.7;max-width:650px;margin-top:12px">
+<p style="margin-bottom:16px">Before a drop goes live, we compute the baseline: average daily channel-wide YouTube AdSense revenue over the 30 days before activation.</p>
+<p>Only channel-wide revenue above baseline counts as uplift — capturing cross-views and discovery of older content. Earning $5/day before, $12/day during = $7/day uplift. Backers share the $7, not the $12.</p>
+</div>
+</div></div>
+<div class="sec sec-dark"><div class="inner">
+<h2>Scenario modelling</h2>
+<table style="width:100%;border-collapse:collapse;border:2px solid var(--inkMid);margin-top:24px">
+<thead><tr><th style="padding:16px 20px;text-align:left;border-right:1px solid var(--inkMid);border-bottom:2px solid var(--inkMid);font-family:monospace;font-size:9px;color:var(--amber);text-transform:uppercase;letter-spacing:.1em">Conservative</th><th style="padding:16px 20px;text-align:left;border-right:1px solid var(--inkMid);border-bottom:2px solid var(--inkMid);font-family:monospace;font-size:9px;color:var(--amber);text-transform:uppercase">Base Case</th><th style="padding:16px 20px;text-align:left;border-bottom:2px solid var(--inkMid);font-family:monospace;font-size:9px;color:var(--amber);text-transform:uppercase">Optimistic</th></tr></thead>
+<tbody id="scenarioTable"></tbody>
+</table>
+<div style="margin-top:20px;padding:16px;border:1px solid var(--inkMid);font-size:13px;color:var(--inkLight);line-height:1.6"><strong style="color:var(--cream)">Key insight:</strong> In a 6-month tenor, only the optimistic scenario approaches cap. Backers should think of this as supporting music with potential upside — not guaranteed returns.</div>
+</div></div>
+<div class="sec"><div class="inner">
+<h2>The waterfall</h2>
+<div class="waterfall" style="margin-top:20px;border:2px solid var(--ink)">
+<div><div class="wn"><span class="mono amber" style="font-size:20px;font-weight:700">1</span></div><div style="padding:14px 20px;flex:1"><div style="font-size:15px;font-weight:700;margin-bottom:4px">Escrow admin costs</div><div style="font-size:13px;color:var(--inkMid)">Lockbox maintenance fees. Typically minimal.</div></div></div>
+<div><div class="wn"><span class="mono amber" style="font-size:20px;font-weight:700">2</span></div><div style="padding:14px 20px;flex:1"><div style="font-size:15px;font-weight:700;margin-bottom:4px">Loan principal</div><div style="font-size:13px;color:var(--inkMid)">Original loan amount returned first.</div></div></div>
+<div><div class="wn"><span class="mono amber" style="font-size:20px;font-weight:700">3</span></div><div style="padding:14px 20px;flex:1"><div style="font-size:15px;font-weight:700;margin-bottom:4px">Interest (revenue share)</div><div style="font-size:13px;color:var(--inkMid)">After principal is repaid, revenue share continues as interest until cap or tenor expiry.</div></div></div>
+<div><div class="wn"><span class="mono amber" style="font-size:20px;font-weight:700">4</span></div><div style="padding:14px 20px;flex:1"><div style="font-size:15px;font-weight:700;margin-bottom:4px">Artist retains remainder</div><div style="font-size:13px;color:var(--inkMid)">Everything above the backer share. Their music, their revenue.</div></div></div>
+</div>
+</div></div>
+</div>
+
+<!-- TRUST -->
+<div class="page" id="p-trust">
+<div class="sec"><div class="inner"><span class="label">Design Philosophy</span><h1>Trust<br>Architecture</h1><p class="sub">Every design decision on ZiggyDust is a trust decision.</p></div></div>
+<div id="trustSections"></div>
+</div>
+
+<!-- FAQ -->
+<div class="page" id="p-faq">
+<div class="sec"><div class="inner"><span class="label">Questions</span><h1>FAQ</h1><p class="sub">Plain answers to the questions you should be asking.</p></div></div>
+<div class="sec"><div class="inner" id="faqContent"></div></div>
+</div>
+
+<!-- AUTH MODAL -->
+<div class="modal-bg" id="authModal" onclick="hideAuth()">
+<div class="modal" onclick="event.stopPropagation()">
+<div class="tab-bar"><button id="tabLogin" class="active" onclick="switchTab('login')">Log In</button><button id="tabSignup" onclick="switchTab('signup')">Sign Up</button></div>
+<div style="padding:32px" id="authForm"></div>
+</div>
+</div>
+
+<footer><div class="inner" style="display:flex;justify-content:space-between">
+<div>
+<div style="font-size:24px;font-weight:700;letter-spacing:-.03em;margin-bottom:8px">ziggy<span class="amber">dust</span></div>
+<span class="mono" style="font-size:9px;color:var(--inkLight);text-transform:uppercase;letter-spacing:.15em;display:block">back your artiste</span>
+<span class="mono" style="font-size:9px;color:var(--inkLight);letter-spacing:.1em;display:block;margin-top:16px">Experimental · Not financial advice · Not a security</span>
+</div>
+<div style="display:flex;gap:48px">
+<div><span class="mono" style="font-size:9px;color:var(--amber);text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:12px">Learn</span>
+<div onclick="go('how')" style="font-family:monospace;font-size:11px;color:var(--sand);cursor:pointer;margin-bottom:6px">How It Works</div>
+<div onclick="go('bowie')" style="font-family:monospace;font-size:11px;color:var(--sand);cursor:pointer;margin-bottom:6px">Bowie Bonds</div>
+<div onclick="go('economics')" style="font-family:monospace;font-size:11px;color:var(--sand);cursor:pointer;margin-bottom:6px">The Economics</div>
+<div onclick="go('trust')" style="font-family:monospace;font-size:11px;color:var(--sand);cursor:pointer">Trust Architecture</div>
+</div>
+<div><span class="mono" style="font-size:9px;color:var(--amber);text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:12px">Join</span>
+<div onclick="go('artists')" style="font-family:monospace;font-size:11px;color:var(--sand);cursor:pointer;margin-bottom:6px">For Artists</div>
+<div onclick="go('backers')" style="font-family:monospace;font-size:11px;color:var(--sand);cursor:pointer;margin-bottom:6px">For Backers</div>
+<div onclick="go('faq')" style="font-family:monospace;font-size:11px;color:var(--sand);cursor:pointer">FAQ</div>
+</div>
+</div>
+</div>
+<div style="max-width:1100px;margin:32px auto 0;border-top:1px solid var(--inkMid);padding-top:16px"><span class="mono" style="font-size:9px;color:var(--inkMid)">© 2026 ZiggyDust. Platform facilitator only. No custody of funds.</span></div>
+</footer>
+
+<script>
+const CURRENCIES={USD:{symbol:'$',locale:'en-US',rate:1},INR:{symbol:'₹',locale:'en-IN',rate:85}};
+let curCurrency='USD';
+function fmtC(n){const c=CURRENCIES[curCurrency];const v=Number(n)*c.rate;return c.symbol+v.toLocaleString(c.locale,{maximumFractionDigits:0});}
+function setCurrency(c){
+  curCurrency=c;
+  document.getElementById('curUSD').className=c==='USD'?'nav-btn nav-btn-fill':'nav-btn';
+  document.getElementById('curINR').className=c==='INR'?'nav-btn nav-btn-fill':'nav-btn';
+  document.getElementById('heroTotal').textContent=fmtC(2600);
+  document.getElementById('heroAdSpend').textContent=fmtC(780);
+  rebuildScenarioTable();
+}
+
+const pages=['home','how','artists','backers','bowie','economics','trust','faq'];
+const navLabels={home:'Home',how:'How It Works',artists:'For Artists',backers:'For Backers',bowie:'Bowie Bonds',economics:'The Economics',trust:'Trust',faq:'FAQ'};
+
+function go(id){
+  pages.forEach(p=>{document.getElementById('p-'+p).classList.remove('active')});
+  document.getElementById('p-'+id).classList.add('active');
+  document.querySelectorAll('#navLinks a').forEach(a=>{a.classList.toggle('active',a.dataset.page===id)});
+  window.scrollTo(0,0);
+}
+
+// Build nav
+const nl=document.getElementById('navLinks');
+pages.filter(p=>p!=='home').forEach(p=>{const a=document.createElement('a');a.textContent=navLabels[p];a.dataset.page=p;a.onclick=()=>go(p);nl.appendChild(a)});
+
+// Scenario table
+function getScenarioRows(){return [["Budget",fmtC(1000),fmtC(1000),fmtC(1000)],["Co-pay (20%)",fmtC(200),fmtC(200),fmtC(200)],["Backer pool",fmtC(800),fmtC(800),fmtC(800)],["Daily uplift",fmtC(2),fmtC(5),fmtC(12)],["Monthly uplift",fmtC(60),fmtC(150),fmtC(360)],["Rev share (25%)",fmtC(15)+"/mo",fmtC(37.5)+"/mo",fmtC(90)+"/mo"],["Time to cap","80mo","32mo","13mo"],["6mo payout",fmtC(90),fmtC(225),fmtC(540)],["Backer return","0.11x ⚠️","0.28x","0.68x"]];}
+function rebuildScenarioTable(){const st=document.getElementById('scenarioTable');st.innerHTML='';getScenarioRows().forEach(r=>{const tr=document.createElement('tr');r.forEach((c,j)=>{const td=document.createElement('td');td.textContent=c;td.style.cssText=`padding:10px 20px;border-bottom:1px solid var(--inkMid);${j<2?'border-right:1px solid var(--inkMid);':''}font-family:${j>0?'monospace':'inherit'};font-size:${j===0?'13':'12'}px;font-weight:${j===0?'600':'400'};color:${c.includes('⚠️')?'var(--red)':j===0?'var(--cream)':'var(--inkLight)'}`;tr.appendChild(td)});st.appendChild(tr)});}
+rebuildScenarioTable();
+
+// Trust sections
+const trustData=[{t:"Mandatory LinkedIn",why:"Anonymous money creates bad incentives. Real identity changes behaviour.",how:"LinkedIn URL required at signup. Displayed on Backer Wall. Clickable links."},{t:"YouTube OAuth (read-only)",why:"Self-reported numbers are meaningless. Backers should see API data.",how:"Artist connects YouTube via OAuth. We pull subscribers, views, monthly stats. Revenue tracked channel-wide. Read-only."},{t:"The Lockbox",why:"We don't handle money. Escrow can only release to verified Google Ads account.",how:"Funds in from co-pay + backers. Funds out only as Google Ads. Every deployment has a receipt."},{t:"20% artist co-pay",why:"If someone won't put their own money in, that's a red flag. First-in, first-loss.",how:"Enforced at drop creation. Cannot submit under 20%. Displayed on every drop."},{t:"Track records",why:"Past behaviour predicts future behaviour. History visible to all.",how:"Every drop updates track record. Drops completed, payback rate, average returns."},{t:"Ad receipts",why:"'Your money became ads' is a claim. Receipts make it a fact.",how:"Date, ad type, spend, impressions, views, CTR, Google reference. Updated after each deploy."}];
+const ts=document.getElementById('trustSections');
+trustData.forEach((s,i)=>{const dark=i%2===1;const sec=document.createElement('div');sec.className=`sec${dark?' sec-dark':''}`;sec.innerHTML=`<div class="inner"><div style="display:flex;gap:48px"><div style="width:40px;flex-shrink:0"><span class="mono" style="font-size:24px;font-weight:700;color:var(--amber)">${String(i+1).padStart(2,'0')}</span></div><div style="flex:1"><h2 ${dark?'style="color:var(--cream)"':''}>${s.t}</h2><div class="grid2" style="margin-top:16px"><div><span class="mono" style="font-size:9px;color:var(--amber);text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:8px">Why</span><div style="font-size:14px;color:var(${dark?'--inkLight':'--inkMid'});line-height:1.6">${s.why}</div></div><div><span class="mono" style="font-size:9px;color:var(--amber);text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:8px">How</span><div style="font-size:14px;color:var(${dark?'--inkLight':'--inkMid'});line-height:1.6">${s.how}</div></div></div></div></div></div>`;ts.appendChild(sec)});
+
+// FAQ
+const faqData=[{c:"General",items:[["What is ZiggyDust?","A platform connecting indie artists with backers who loan funds for YouTube ad campaigns. Backers earn interest — a share of incremental channel-wide revenue. Platform facilitates but doesn't hold funds."],["Is this like crowdfunding?","No. Crowdfunding is donation-based. ZiggyDust is a performance-linked loan — funds go to YouTube ads, backers earn interest from uplift. Principal repaid first. Real risk of loss."],["Is this a security?","ZiggyDust facilitates performance-linked loans. Backer funds are a loan — not equity, not a royalty purchase. We're not a broker or exchange. Regulatory landscape is evolving — consult your own advisors."]]},{c:"For Artists",items:[["What do I need?","Active YPP channel, LinkedIn profile, Google Ads account, and ≥20% co-pay."],["Do I give up rights?","Never. You retain full ownership. Only obligation is revenue share on uplift during tenor."],["What if ads don't work?","No uplift = nothing to share. Backers may lose everything. Co-pay already deployed. No refunds."],["What's the 20% co-pay?","Minimum 20% of budget from your funds. Goes in first, deploys first. Skin in the game."],["Can I run multiple drops at once?","No. One active drop per artist at a time. Complete or close your current drop before creating a new one. This keeps you focused and gives backers confidence."]]},{c:"For Backers",items:[["How do I earn?","Your funds are a performance-linked loan. Principal repaid first, then you earn interest — % of incremental channel-wide YouTube revenue above baseline. Paid monthly until cap or tenor."],["Can I lose money?","Yes. If ads don't generate uplift, your loan may not be repaid. Artist co-pay is first-loss but no guarantee."],["How do I know money becomes ads?","Google Ads receipts: invoice refs, impressions, views, CTR. Visible to all backers."],["Who are other backers?","All backers have LinkedIn profiles. Backer Wall shows names, headlines, track records."]]},{c:"Platform",items:[["Does ZiggyDust hold money?","No. Backer funds are a loan to the artist, not a deposit with us. Funds flow between participants and escrow. Zero custody."],["What if artist defaults?","Default triggers: missed payments, OAuth revocation, content deletion. Consequences: platform exclusion, public record."],["What's the baseline?","Average daily channel-wide YouTube revenue over 30 days before activation. Computed at launch, non-disputable. Uplift is measured across the entire channel to capture cross-views."]]}];
+const fc=document.getElementById('faqContent');
+faqData.forEach(cat=>{const d=document.createElement('div');d.style.marginBottom='32px';d.innerHTML=`<span class="mono" style="font-size:10px;color:var(--amber);text-transform:uppercase;letter-spacing:.12em;display:block;margin-bottom:16px">${cat.c}</span>`;
+cat.items.forEach(([q,a])=>{const item=document.createElement('div');item.className='faq-item';item.innerHTML=`<button class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span>${q}</span><span class="mono amber" style="font-size:18px;flex-shrink:0;margin-left:12px">+</span></button><div class="faq-a">${a}</div>`;d.appendChild(item)});
+fc.appendChild(d)});
+
+// Auth
+let authTab='login';
+function showAuth(mode){authTab=mode;renderAuth();document.getElementById('authModal').classList.add('show')}
+function hideAuth(){document.getElementById('authModal').classList.remove('show')}
+function switchTab(t){authTab=t;renderAuth()}
+function renderAuth(){
+  document.getElementById('tabLogin').classList.toggle('active',authTab==='login');
+  document.getElementById('tabSignup').classList.toggle('active',authTab==='signup');
+  let h='';
+  if(authTab==='signup')h+=`<div style="margin-bottom:20px"><label>I am a</label><div style="display:flex"><button style="flex:1;padding:10px;border:2px solid var(--ink);background:var(--ink);color:var(--cream);font-family:monospace;font-size:11px;font-weight:600;cursor:pointer;text-transform:uppercase">ARTIST</button><button style="flex:1;padding:10px;border:2px solid var(--ink);border-left:none;background:transparent;color:var(--ink);font-family:monospace;font-size:11px;font-weight:600;cursor:pointer;text-transform:uppercase">BACKER</button></div></div><div style="margin-bottom:20px"><label>Full Name</label><input placeholder="Your name"></div>`;
+  h+=`<div style="margin-bottom:20px"><label>Email</label><input placeholder="you@email.com" type="email"></div><div style="margin-bottom:20px"><label>Password</label><input placeholder="••••••••" type="password"></div>`;
+  if(authTab==='signup')h+=`<div style="margin-bottom:20px"><label>LinkedIn Profile URL (mandatory)</label><input placeholder="https://linkedin.com/in/..."><span class="mono" style="font-size:10px;color:var(--inkMid);display:block;margin-top:6px">Everyone on ZiggyDust is a real person. No anons.</span></div>`;
+  h+=`<button style="width:100%;padding:14px;border:2px solid var(--ink);background:var(--ink);color:var(--cream);font-family:monospace;font-size:13px;font-weight:600;cursor:pointer;text-transform:uppercase">${authTab==='login'?'Log In':'Create Account'}</button>`;
+  h+=`<div style="text-align:center;margin-top:16px"><span class="mono" style="font-size:11px;color:var(--inkMid)">${authTab==='login'?'No account? ':'Already in? '}<span onclick="switchTab('${authTab==='login'?'signup':'login'}')" style="color:var(--ink);font-weight:600;cursor:pointer;text-decoration:underline">${authTab==='login'?'Sign Up':'Log In'}</span></span></div>`;
+  document.getElementById('authForm').innerHTML=h;
+}
+</script>
+</body>
+</html>
