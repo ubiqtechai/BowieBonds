@@ -28,8 +28,8 @@ export default function HomePage() {
               <em className="text-amber">push.</em>
             </h1>
             <p className="text-base text-ink-mid leading-relaxed max-w-lg">
-              ZiggyDust connects indie artists with backers who license
-              their copyright and fund YouTube ad campaigns. Backers earn
+              ZiggyDust connects artistes with backers under copyright
+              arrangement and fund YouTube Ad campaigns. Backers earn
               returns backed by the IP itself. Copyright reverts when
               backers are made whole.
             </p>
