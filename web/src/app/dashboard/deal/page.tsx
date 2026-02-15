@@ -16,9 +16,9 @@ const DOCS = [
       "No custody of funds at any point. Escrow managed via registered partner.",
       "Active YouTube Partner Program required.",
       "Co-pay minimum 20% of budget — first-in, first-loss.",
-      "Artist grants exclusive copyright license on the specific promoted work only — not the channel or catalogue — to the backer pool for the campaign period.",
+      "Artiste grants exclusive copyright license on the specific promoted work only — not the channel or catalogue — to the backer pool for the campaign period.",
       "Default triggers: missed payments, OAuth revocation. On default, backers retain copyright license on the work.",
-      "Copyright on the work automatically reverts to artist when backers are made whole or the license period expires.",
+      "Copyright on the work automatically reverts to artiste when backers are made whole or the license period expires.",
       "Dispute resolution via arbitration.",
     ],
   },
@@ -26,16 +26,16 @@ const DOCS = [
     key: "fund",
     num: "02",
     title: "The Pact",
-    desc: "Copyright licensing agreement between Artist (Licensor) and Backers (Licensees). Returns backed by the copyright itself.",
+    desc: "Copyright licensing agreement between Artiste (Licensor) and Backers (Licensees). Returns backed by the copyright itself.",
     clauses: [
-      "Artist grants an exclusive license on the specific promoted work's copyright — and only that work — to the backer pool for the license period.",
+      "Artiste grants an exclusive license on the specific promoted work's copyright — and only that work — to the backer pool for the license period.",
       "Backers pay a license fee that funds the YouTube ad campaign. License fee is recovered first per the waterfall.",
       "Revenue share flows as commercial return on the copyright license — channel-wide uplift above baseline.",
-      "Waterfall: escrow costs → license fee recovery → license revenue share → copyright reverts, artist retains remainder.",
-      "Ends at return cap or license period expiry. Copyright on the work automatically reverts to artist.",
-      "If artist defaults, backers retain the exclusive copyright license on that specific work.",
+      "Waterfall: escrow costs → license fee recovery → license revenue share → copyright reverts, artiste retains remainder.",
+      "Ends at return cap or license period expiry. Copyright on the work automatically reverts to artiste.",
+      "If artiste defaults, backers retain the exclusive copyright license on that specific work.",
       "Backer acknowledges total loss of license fee is possible.",
-      "Artist must not delete content during the license period.",
+      "Artiste must not delete content during the license period.",
     ],
   },
   {
@@ -70,7 +70,7 @@ export default function DealPage() {
   return (
     <div className="px-4 lg:px-12 py-8 lg:py-10">
       <h1 className="text-3xl lg:text-4xl font-bold mb-1">The Deal</h1>
-      <p className="text-ink-mid text-sm mb-8">
+      <p className="text-ink-mid text-base mb-8">
         Three parts. Read them. Accept them. Then we move.
       </p>
 
@@ -108,14 +108,14 @@ export default function DealPage() {
 
           {/* Doc body */}
           <div className="px-4 lg:px-6 py-4">
-            <p className="text-[13px] text-ink-mid mb-3.5 leading-relaxed">
+            <p className="text-sm text-ink-mid mb-3.5 leading-relaxed">
               {doc.desc}
             </p>
             <div className="bg-warm p-3.5 mb-4">
               {doc.clauses.map((cl, j) => (
                 <div
                   key={j}
-                  className="flex gap-2.5 mb-1.5 text-xs leading-relaxed"
+                  className="flex gap-2.5 mb-1.5 text-sm leading-relaxed"
                 >
                   <Mono className="text-ink-light text-[10px] min-w-[16px]">
                     §{j + 1}
@@ -144,7 +144,7 @@ export default function DealPage() {
           <div className="text-2xl lg:text-[28px] font-bold text-green mb-2">
             You&apos;re all in.
           </div>
-          <p className="text-[13px] text-ink-mid mb-5">
+          <p className="text-sm text-ink-mid mb-5">
             {role === "artist"
               ? "Ready once co-pay lands in escrow."
               : "You can now back drops."}

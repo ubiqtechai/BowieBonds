@@ -44,7 +44,7 @@ export function Footer() {
               Join
             </Mono>
             {[
-              ["/artists", "For Artists"],
+              ["/artists", "For Artistes"],
               ["/backers", "For Backers"],
               ["/faq", "FAQ"],
             ].map(([href, label]) => (

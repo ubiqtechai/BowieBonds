@@ -49,7 +49,7 @@ export function Sidebar() {
                 i > 0 ? "border-l-0" : ""
               } ${role === r ? "bg-ink text-bg" : "bg-transparent text-ink"}`}
             >
-              {r}
+              {r === "artist" ? "artiste" : r}
             </button>
           ))}
         </div>

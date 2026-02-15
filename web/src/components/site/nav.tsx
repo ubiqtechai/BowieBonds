@@ -10,7 +10,7 @@ import type { CurrencyCode } from "@/lib/constants";
 
 const NAV_LINKS = [
   { href: "/how", label: "How It Works" },
-  { href: "/artists", label: "For Artists" },
+  { href: "/artists", label: "For Artistes" },
   { href: "/backers", label: "For Backers" },
   { href: "/bowie-bonds", label: "Bowie Bonds" },
   { href: "/economics", label: "The Economics" },
@@ -31,9 +31,14 @@ export function Nav() {
         <div className="flex items-center gap-8">
           <Link
             href="/"
-            className="text-[22px] font-bold tracking-tight no-underline text-ink"
+            className="no-underline text-ink"
           >
-            ziggy<span className="text-amber">dust</span>
+            <span className="text-[22px] font-bold tracking-tight block leading-none">
+              ziggy<span className="text-amber">dust</span>
+            </span>
+            <span className="text-[7px] font-mono uppercase tracking-[0.15em] text-ink-mid block leading-tight mt-1.5">
+              back your artiste<br />back your music
+            </span>
           </Link>
 
           {/* Desktop nav */}

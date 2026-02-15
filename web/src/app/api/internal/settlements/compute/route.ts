@@ -47,7 +47,7 @@ export async function POST(req: NextRequest) {
     }[] = [];
 
     for (const drop of activeDrops) {
-      // Check license period expiry — copyright reverts to artist
+      // Check license period expiry — copyright reverts to artiste
       if (drop.expiresAt && drop.expiresAt <= now) {
         await db.drop.update({
           where: { id: drop.id },
@@ -221,7 +221,7 @@ async function updateTrackRecords(dropId: string) {
 
   if (!drop) return;
 
-  // Update artist track record
+  // Update artiste track record
   const artistDrops = await db.drop.findMany({
     where: { artistId: drop.artistId, status: { in: ["completed", "active"] } },
     include: {

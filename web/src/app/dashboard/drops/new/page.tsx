@@ -61,7 +61,7 @@ export default function NewDropPage() {
             You already have an active or funding drop.
           </Mono>
           <p className="text-xs text-ink-mid mt-1.5">
-            One active drop per artist at a time. Complete or close your current
+            One active drop per artiste at a time. Complete or close your current
             drop before creating a new one.
           </p>
         </div>
@@ -233,7 +233,7 @@ export default function NewDropPage() {
                 value={form.escrowType}
                 onChange={(e) => update("escrowType", e.target.value)}
               >
-                <option value="designated">Artist-Controlled Account</option>
+                <option value="designated">Artiste-Controlled Account</option>
                 <option value="third_party">Third-Party Agent</option>
               </select>
             </div>

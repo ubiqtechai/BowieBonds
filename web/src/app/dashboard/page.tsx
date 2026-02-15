@@ -103,7 +103,7 @@ export default function DashboardHome() {
           {drops.length === 0 ? (
             <EmptyState
               title="No drops yet"
-              message="When artists create drops, they'll appear here."
+              message="When artistes create drops, they'll appear here."
               action={
                 <Link href="/dashboard/drops/new">
                   <Button>+ Create a Drop</Button>

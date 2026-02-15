@@ -31,9 +31,9 @@ export async function PATCH(
     }
 
     if (action === "pay") {
-      // Only the artist can mark as paid
+      // Only the artiste can mark as paid
       if (settlement.drop.artistId !== auth.userId) {
-        return NextResponse.json({ error: "Only the artist can mark settlements as paid" }, { status: 403 });
+        return NextResponse.json({ error: "Only the artiste can mark settlements as paid" }, { status: 403 });
       }
       if (settlement.status !== "pending" && settlement.status !== "overdue") {
         return NextResponse.json({ error: "Settlement is not payable" }, { status: 400 });

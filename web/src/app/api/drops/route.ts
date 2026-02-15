@@ -68,7 +68,7 @@ export async function GET(req: NextRequest) {
   }
 }
 
-// POST /api/drops — create drop (artist only)
+// POST /api/drops — create drop (artiste only)
 export async function POST(req: NextRequest) {
   try {
     const auth = await getAuthFromCookies();
@@ -76,7 +76,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
     if (auth.role !== "artist") {
-      return NextResponse.json({ error: "Only artists can create drops" }, { status: 403 });
+      return NextResponse.json({ error: "Only artistes can create drops" }, { status: 403 });
     }
 
     const body = await req.json();
@@ -89,7 +89,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Check one active drop per artist
+    // Check one active drop per artiste
     const existingDrop = await db.drop.findFirst({
       where: {
         artistId: auth.userId,

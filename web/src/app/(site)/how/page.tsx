@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 const STEPS = [
   {
     n: "01",
-    t: "Artist creates a drop",
+    t: "Artiste creates a drop",
     dark: false,
     items: [
       "Upload your YouTube video link and connect via OAuth",
@@ -16,7 +16,7 @@ const STEPS = [
       "Put in your co-pay — minimum 20% of budget",
       "Set backer terms: revenue share %, return cap, license period, minimum ticket size",
       "Your co-pay goes into the Lockbox first — you eat before backers do",
-      "One active drop per artist at a time",
+      "One active drop per artiste at a time",
     ],
   },
   {
@@ -24,9 +24,9 @@ const STEPS = [
     t: "Backers license the copyright",
     dark: true,
     items: [
-      "Browse live drops — see artist profiles, YouTube stats (OAuth-verified), and terms",
+      "Browse live drops — see artiste profiles, YouTube stats (OAuth-verified), and terms",
       "Every backer has a mandatory LinkedIn profile — real people only",
-      "Back a drop and receive an exclusive copyright license on that specific promoted work only — not the artist's channel or catalogue",
+      "Back a drop and receive an exclusive copyright license on that specific promoted work only — not the artiste's channel or catalogue",
       "Your funds go into the Lockbox and can only become YouTube ads",
       "See who else is backing — full Backer Wall with names, LinkedIn, track records",
       "Once the goal is hit, the drop goes live",
@@ -53,8 +53,8 @@ const STEPS = [
       "Baseline established: 30-day channel average before campaign launch",
       "Only incremental uplift above baseline counts — including cross-views to older content",
       "Backer's original license fee is recovered first, then revenue share flows monthly",
-      "When cap is hit or license period expires, copyright on the work automatically reverts to the artist",
-      "If artist defaults, backers retain the exclusive copyright license on that specific work",
+      "When cap is hit or license period expires, copyright on the work automatically reverts to the artiste",
+      "If artiste defaults, backers retain the exclusive copyright license on that specific work",
     ],
   },
 ];
@@ -70,7 +70,7 @@ export default function HowPage() {
           How It Works
         </h1>
         <p className="text-base text-ink-mid leading-relaxed max-w-xl">
-          Four steps. Artist creates, backers license, ads deploy, copyright reverts.
+          Four steps. Artiste creates, backers license, ads deploy, copyright reverts.
         </p>
       </Section>
 
@@ -93,7 +93,7 @@ export default function HowPage() {
               {s.items.map((item, j) => (
                 <div
                   key={j}
-                  className={`flex gap-3 mb-2.5 text-sm leading-relaxed ${
+                  className={`flex gap-3 mb-2.5 text-base leading-relaxed ${
                     s.dark ? "text-ink-light" : "text-ink-mid"
                   }`}
                 >
@@ -110,7 +110,7 @@ export default function HowPage() {
         <div className="text-center">
           <h2 className="text-3xl font-bold mb-3">Convinced?</h2>
           <p className="text-base text-ink-mid">
-            Join as an artist or a backer.
+            Join as an artiste or a backer.
           </p>
           <Link href="/signup">
             <Button size="lg" className="mt-6">

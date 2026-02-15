@@ -18,7 +18,7 @@ export default function ArtistsPage() {
   return (
     <div>
       <Section>
-        <Mono className="text-[10px] text-ink-mid uppercase tracking-[0.15em] block mb-3">For Artists</Mono>
+        <Mono className="text-[10px] text-ink-mid uppercase tracking-[0.15em] block mb-3">For Artistes</Mono>
         <h1 className="text-4xl lg:text-[52px] font-bold leading-[0.95] tracking-tight mb-4">
           Get your music<br /><em className="text-amber">heard.</em>
         </h1>
@@ -33,7 +33,7 @@ export default function ArtistsPage() {
           {REQUIREMENTS.map((s, i) => (
             <div key={i} className={`p-5 ${i % 3 < 2 ? "sm:border-r border-ink-mid" : ""} ${i < 3 ? "border-b border-ink-mid" : ""}`}>
               <div className="text-[15px] font-bold text-bg mb-1.5">{s.t}</div>
-              <div className="text-[13px] text-ink-light leading-relaxed">{s.d}</div>
+              <div className="text-sm text-ink-light leading-relaxed">{s.d}</div>
             </div>
           ))}
         </div>
@@ -41,7 +41,7 @@ export default function ArtistsPage() {
 
       <Section>
         <h2 className="text-3xl font-bold mb-5">What you keep</h2>
-        <div className="text-[15px] leading-loose text-ink-mid max-w-xl space-y-3">
+        <div className="text-base leading-loose text-ink-mid max-w-xl space-y-3">
           <p><strong className="text-ink">Your copyright — it comes back.</strong> You license the copyright on your specific promoted work only — not your channel, not your catalogue. It reverts automatically when backers are made whole. Think of it as putting one work&apos;s IP behind the deal — same as Bowie did in 1997.</p>
           <p><strong className="text-ink">Your revenue above the share.</strong> After backers get their cut of the uplift, everything else is yours.</p>
           <p><strong className="text-ink">Your community.</strong> Backers are music people — producers, fellow musicians, supporters. They&apos;re licensing your work because they believe in it.</p>

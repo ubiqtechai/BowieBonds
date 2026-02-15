@@ -7,19 +7,19 @@ const THE_PACT = {
   sections: [
     {
       heading: "§1 — Agreement Structure",
-      content: "This Copyright Licensing Agreement ('The Pact') is entered into between the Artist ('Licensor', creator of the Drop) and each Backer ('Licensee') who commits a license fee. The agreement activates when the Drop reaches its funding goal and the Artist initiates activation."
+      content: "This Copyright Licensing Agreement ('The Pact') is entered into between the Artiste ('Licensor', creator of the Drop) and each Backer ('Licensee') who commits a license fee. The agreement activates when the Drop reaches its funding goal and the Artiste initiates activation."
     },
     {
       heading: "§2 — Copyright License Grant",
-      content: "The Artist grants an exclusive license on the specific promoted work's copyright — and only that work — to the backer pool for the license period. The license covers all copyright-related rights in that one promoted work only. It does not extend to the Artist's channel, catalogue, or any other works. The license is granted pro-rata to all backers based on their license fee proportion."
+      content: "The Artiste grants an exclusive license on the specific promoted work's copyright — and only that work — to the backer pool for the license period. The license covers all copyright-related rights in that one promoted work only. It does not extend to the Artiste's channel, catalogue, or any other works. The license is granted pro-rata to all backers based on their license fee proportion."
     },
     {
       heading: "§3 — Backer Rights",
-      content: "Backers (Licensees) are entitled to: (a) pro-rata share of the exclusive copyright license on the specific promoted work, (b) pro-rata share of monthly license revenue (uplift payments) based on their license fee proportion, (c) transparent access to revenue data via the platform, (d) cap-limited returns as specified in the Drop terms, (e) retention of the copyright license on the work in the event of artist default."
+      content: "Backers (Licensees) are entitled to: (a) pro-rata share of the exclusive copyright license on the specific promoted work, (b) pro-rata share of monthly license revenue (uplift payments) based on their license fee proportion, (c) transparent access to revenue data via the platform, (d) cap-limited returns as specified in the Drop terms, (e) retention of the copyright license on the work in the event of artiste default."
     },
     {
       heading: "§4 — Co-Pay Structure",
-      content: "The Artist's co-pay (minimum 20% of total budget) serves as first-loss capital. Ad spend is deployed from co-pay funds first. This aligns artist incentives with campaign success."
+      content: "The Artiste's co-pay (minimum 20% of total budget) serves as first-loss capital. Ad spend is deployed from co-pay funds first. This aligns artiste incentives with campaign success."
     },
     {
       heading: "§5 — License Revenue Mechanics",
@@ -27,7 +27,7 @@ const THE_PACT = {
     },
     {
       heading: "§6 — Copyright Reversion",
-      content: "The exclusive copyright license on the specific promoted work automatically reverts to the Artist upon the earlier of: (a) all backers reaching their return cap, or (b) the license period expiring. Upon reversion, the Artist regains full, unencumbered rights to that work. The license never extended beyond the one promoted work. No action is required from either party — reversion is automatic."
+      content: "The exclusive copyright license on the specific promoted work automatically reverts to the Artiste upon the earlier of: (a) all backers reaching their return cap, or (b) the license period expiring. Upon reversion, the Artiste regains full, unencumbered rights to that work. The license never extended beyond the one promoted work. No action is required from either party — reversion is automatic."
     },
     {
       heading: "§7 — Termination & Default",

@@ -7,7 +7,7 @@ import { useCurrencyStore } from "@/stores/currency-store";
 
 const TIMELINE = [
   { year: "1997", title: "The Issue", desc: "$55 million in asset-backed securities issued. Prudential Insurance Company buys the entire offering. Annual coupon: 7.9%. Maturity: 10 years. Collateral: royalties from 25 Bowie albums (287 songs)." },
-  { year: "1998–2003", title: "The Peak", desc: "Bonds perform as expected. Royalty income covers coupon payments. Moody's rates them A3 — investment grade. Other artists take notice: James Brown, Ashford & Simpson, the Isley Brothers explore similar deals." },
+  { year: "1998–2003", title: "The Peak", desc: "Bonds perform as expected. Royalty income covers coupon payments. Moody's rates them A3 — investment grade. Other artistes take notice: James Brown, Ashford & Simpson, the Isley Brothers explore similar deals." },
   { year: "2004", title: "The Downgrade", desc: "The music industry shifts. Napster, then iTunes, then streaming reshape how people consume music. Moody's downgrades Bowie Bonds to Baa3 — one notch above junk. The underlying revenue model is under pressure." },
   { year: "2007", title: "The Maturity", desc: "Bonds mature and are repaid in full. Despite the downgrade, every bondholder got their principal back plus all coupon payments. Bowie, meanwhile, had his $55 million for a decade — and used it to buy back masters and fund new work." },
   { year: "2016", title: "The Legacy", desc: "Bowie passes away in January 2016. His estate retains full ownership of his catalogue — partly because the Bowie Bonds model let him buy back rights rather than sell them. The bonds proved that creative output could function as a financial asset." },
@@ -15,8 +15,8 @@ const TIMELINE = [
 
 const PROOFS = [
   ["Creative output has financial value", "A song isn't just art — it generates measurable, recurring revenue. That revenue stream can back a copyright license that funds promotion."],
-  ["You don't have to sell to monetise", "Bowie didn't sell his catalogue. He raised capital against its future revenue. He kept ownership, got liquidity, and bought back even more rights. ZiggyDust artists license their copyright temporarily — it reverts when backers are made whole."],
-  ["Copyright-backed = risk-bounded", "Bowie Bonds were backed by actual royalty revenue. ZiggyDust drops are backed by the copyright itself — if the artist defaults, backers retain the license."],
+  ["You don't have to sell to monetise", "Bowie didn't sell his catalogue. He raised capital against its future revenue. He kept ownership, got liquidity, and bought back even more rights. ZiggyDust artistes license their copyright temporarily — it reverts when backers are made whole."],
+  ["Copyright-backed = risk-bounded", "Bowie Bonds were backed by actual royalty revenue. ZiggyDust drops are backed by the copyright itself — if the artiste defaults, backers retain the license."],
   ["Scale matters less than structure", "Bowie was a superstar, but the structure works at any scale. The key ingredients are: a copyright license, transparent reporting, and aligned incentives."],
 ];
 
@@ -37,7 +37,7 @@ export default function BowieBondsPage() {
           <div className="text-xl font-bold text-bg leading-relaxed mb-6">
             In January 1997, David Bowie did something no musician had ever done. He walked into a room with investment banker David Pullman and emerged with $55 million — not from a record deal, not from a tour, but from the future.
           </div>
-          <div className="text-[15px] text-ink-light leading-relaxed">
+          <div className="text-base text-ink-light leading-relaxed">
             Bowie securitised the future royalties of his first 25 albums — everything from &ldquo;Space Oddity&rdquo; to &ldquo;Let&apos;s Dance.&rdquo; The bonds paid 7.9% annually over 10 years, backed entirely by the income those recordings would generate. Prudential Insurance bought the entire issue. It was, at the time, unprecedented.
           </div>
         </div>
@@ -52,7 +52,7 @@ export default function BowieBondsPage() {
             </div>
             <div className="py-4 sm:py-6 sm:pl-8 sm:border-l-2 border-ink">
               <div className="text-lg font-bold mb-1.5">{t.title}</div>
-              <div className="text-sm text-ink-mid leading-relaxed max-w-xl">{t.desc}</div>
+              <div className="text-base text-ink-mid leading-relaxed max-w-xl">{t.desc}</div>
             </div>
           </div>
         ))}
@@ -64,7 +64,7 @@ export default function BowieBondsPage() {
           {PROOFS.map(([t, d]) => (
             <div key={t}>
               <div className="text-base font-bold text-bg mb-1.5">{t}</div>
-              <div className="text-[13px] text-ink-light leading-relaxed">{d}</div>
+              <div className="text-sm text-ink-light leading-relaxed">{d}</div>
             </div>
           ))}
         </div>
@@ -77,7 +77,7 @@ export default function BowieBondsPage() {
             <div>
               <Mono className="text-[10px] text-ink-mid uppercase tracking-widest block mb-3">Bowie Bonds (1997)</Mono>
               {["$55M single issue", "25 albums, 287 songs", "Prudential (institutional)", "10-year maturity", "7.9% annual coupon", "Royalty-backed securities"].map((t) => (
-                <div key={t} className="py-2 border-b border-sand text-[13px] text-ink-mid">{t}</div>
+                <div key={t} className="py-2 border-b border-sand text-sm text-ink-mid">{t}</div>
               ))}
             </div>
             <div className="hidden lg:flex items-center pt-8">
@@ -86,12 +86,12 @@ export default function BowieBondsPage() {
             <div>
               <Mono className="text-[10px] text-amber uppercase tracking-widest block mb-3">ZiggyDust (2026)</Mono>
               {[`${fmt(500)}–${fmt(2500)} per drop`, "1 video per drop", "Individual backers", "4–8 month license period", "Revenue share on uplift", "Copyright-backed, auto-revert"].map((t) => (
-                <div key={t} className="py-2 border-b border-sand text-[13px] font-semibold">{t}</div>
+                <div key={t} className="py-2 border-b border-sand text-sm font-semibold">{t}</div>
               ))}
             </div>
           </div>
-          <div className="mt-6 p-4 bg-amber-faint border border-amber/30 text-sm leading-relaxed">
-            <strong>Same DNA, different organism.</strong> Bowie Bonds proved the concept at institutional scale. ZiggyDust applies the same logic — copyright-backed, time-bounded, transparent — to independent artists and individual backers. Artists license their copyright temporarily; backers fund promotion against it; copyright reverts when backers are made whole. No banks. No intermediaries. Just music, copyright, and math.
+          <div className="mt-6 p-4 bg-amber-faint border border-amber/30 text-base leading-relaxed">
+            <strong>Same DNA, different organism.</strong> Bowie Bonds proved the concept at institutional scale. ZiggyDust applies the same logic — copyright-backed, time-bounded, transparent — to independent artistes and individual backers. Artistes license their copyright temporarily; backers fund promotion against it; copyright reverts when backers are made whole. No banks. No intermediaries. Just music, copyright, and math.
           </div>
         </div>
       </Section>

@@ -147,7 +147,7 @@ export default function DropDetailPage({
 
           <div className="flex justify-between mb-2">
             <Mono className="text-[11px] text-ink-mid">
-              Artist Co-Pay ({cpPct}%)
+              Artiste Co-Pay ({cpPct}%)
             </Mono>
             <Mono className="text-xs font-semibold text-green">
               {fmt(c.artistCoPay)} ✓
@@ -495,7 +495,7 @@ export default function DropDetailPage({
           Your funds enter escrow. They can only become YouTube ads.
         </p>
         <p className="text-xs text-ink-mid mb-6">
-          Revenue share applies to the artist&apos;s entire YouTube channel —
+          Revenue share applies to the artiste&apos;s entire YouTube channel —
           capturing cross-views and discovery of older content.
         </p>
 

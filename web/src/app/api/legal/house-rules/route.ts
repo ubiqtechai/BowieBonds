@@ -7,15 +7,15 @@ const HOUSE_RULES = {
   sections: [
     {
       heading: "§1 — Platform Role",
-      content: "ZiggyDust is a facilitator that connects artists with backers for YouTube promotion campaigns. The platform does not custody funds, provide financial advice, or guarantee returns. All transactions occur directly between parties."
+      content: "ZiggyDust is a facilitator that connects artistes with backers for YouTube promotion campaigns. The platform does not custody funds, provide financial advice, or guarantee returns. All transactions occur directly between parties."
     },
     {
       heading: "§2 — Identity Verification",
-      content: "All users must provide a valid LinkedIn profile URL. Artists must connect their YouTube channel via OAuth. Anonymous participation is not permitted. Users represent that all information provided is accurate and current."
+      content: "All users must provide a valid LinkedIn profile URL. Artistes must connect their YouTube channel via OAuth. Anonymous participation is not permitted. Users represent that all information provided is accurate and current."
     },
     {
       heading: "§3 — Copyright Licensing Agreements",
-      content: "Each Drop constitutes a copyright licensing agreement between the Artist (Licensor) and participating Backers (Licensees). The Artist grants an exclusive license on the specific promoted work's copyright — and only that work, not the Artist's channel or catalogue — to the backer pool for the license period. The terms (revenue share %, return cap, license period) are set by the artist and accepted by backers through their license fee commitment."
+      content: "Each Drop constitutes a copyright licensing agreement between the Artiste (Licensor) and participating Backers (Licensees). The Artiste grants an exclusive license on the specific promoted work's copyright — and only that work, not the Artiste's channel or catalogue — to the backer pool for the license period. The terms (revenue share %, return cap, license period) are set by the artiste and accepted by backers through their license fee commitment."
     },
     {
       heading: "§4 — Revenue Tracking",
@@ -23,7 +23,7 @@ const HOUSE_RULES = {
     },
     {
       heading: "§5 — Settlement Obligations",
-      content: "Artists are obligated to make monthly settlement payments based on channel-wide revenue uplift. Settlements are due within 15 days of each month-end. Failure to pay within 30 days constitutes a default event."
+      content: "Artistes are obligated to make monthly settlement payments based on channel-wide revenue uplift. Settlements are due within 15 days of each month-end. Failure to pay within 30 days constitutes a default event."
     },
     {
       heading: "§6 — Default Events",
@@ -39,11 +39,11 @@ const HOUSE_RULES = {
     },
     {
       heading: "§9 — Regulatory Characterisation",
-      content: "ZiggyDust facilitates copyright licensing arrangements between content creators (Artists) and backers (Licensees). Artists grant a temporary exclusive license over their content rights; backers fund promotion campaigns against that license. Copyright reverts to the artist upon fulfilment of the arrangement terms. This is a commercial intellectual property transaction governed by the Copyright Act, 1957 — not a lending, deposit-taking, or securities arrangement. ZiggyDust is not a lender, deposit-taker, investment advisor, or securities platform. Escrow services are provided through a registered partner. Users are encouraged to consult their own legal and financial advisors."
+      content: "ZiggyDust facilitates copyright licensing arrangements between content creators (Artistes) and backers (Licensees). Artistes grant a temporary exclusive license over their content rights; backers fund promotion campaigns against that license. Copyright reverts to the artiste upon fulfilment of the arrangement terms. This is a commercial intellectual property transaction governed by the Copyright Act, 1957 — not a lending, deposit-taking, or securities arrangement. ZiggyDust is not a lender, deposit-taker, investment advisor, or securities platform. Escrow services are provided through a registered partner. Users are encouraged to consult their own legal and financial advisors."
     },
     {
       heading: "§10 — Copyright Reversion",
-      content: "Upon the earlier of: (a) all backers reaching their return cap, or (b) the license period expiring, the exclusive copyright license on the specific promoted work automatically reverts to the Artist. No action is required from either party. Upon reversion, the Artist regains full, unencumbered rights to that work. The license never extended beyond the one promoted work. If the Artist defaults under §6, the copyright license on the work is retained by the backer pool."
+      content: "Upon the earlier of: (a) all backers reaching their return cap, or (b) the license period expiring, the exclusive copyright license on the specific promoted work automatically reverts to the Artiste. No action is required from either party. Upon reversion, the Artiste regains full, unencumbered rights to that work. The license never extended beyond the one promoted work. If the Artiste defaults under §6, the copyright license on the work is retained by the backer pool."
     },
   ],
 };

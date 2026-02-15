@@ -16,7 +16,7 @@ export async function GET() {
 
     if (auth.role !== "artist") {
       return NextResponse.json(
-        { error: "Only artists can connect YouTube" },
+        { error: "Only artistes can connect YouTube" },
         { status: 403 }
       );
     }

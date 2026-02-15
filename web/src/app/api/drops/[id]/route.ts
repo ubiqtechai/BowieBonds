@@ -134,7 +134,7 @@ export async function PATCH(
     const artistCopay = (updateData.artistCopay as number) ?? existing.artistCopay;
     if (artistCopay < totalBudget * 0.2) {
       return NextResponse.json(
-        { error: "Artist co-pay must be at least 20% of total budget" },
+        { error: "Artiste co-pay must be at least 20% of total budget" },
         { status: 400 }
       );
     }

@@ -7,7 +7,7 @@ export const signupSchema = z.object({
   password: z.string().min(8, "Password must be at least 8 characters"),
   fullName: z.string().min(2, "Name must be at least 2 characters"),
   role: z.enum(["artist", "backer"], {
-    message: "Role must be artist or backer",
+    message: "Role must be artiste or backer",
   }),
   linkedinUrl: z
     .string()
@@ -43,7 +43,7 @@ export const createDropSchema = z
     tenorMonths: z.number().int().min(1).max(24),
   })
   .refine((data) => data.artistCopay >= data.totalBudget * 0.2, {
-    message: "Artist co-pay must be at least 20% of total budget",
+    message: "Artiste co-pay must be at least 20% of total budget",
     path: ["artistCopay"],
   })
   .refine((data) => data.backerGoal === data.totalBudget - data.artistCopay, {

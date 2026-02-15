@@ -23,11 +23,11 @@ const THE_NUMBERS = {
     },
     {
       heading: "§5 — Cap Enforcement & Copyright Reversion",
-      content: "Each backer's cumulative receipts are capped at License Fee × Cap Multiple. Once a backer reaches their cap, their pro-rata share is redistributed to remaining backers. When all backers are capped, the Drop is marked as completed and the copyright license on the specific promoted work automatically reverts to the artist."
+      content: "Each backer's cumulative receipts are capped at License Fee × Cap Multiple. Once a backer reaches their cap, their pro-rata share is redistributed to remaining backers. When all backers are capped, the Drop is marked as completed and the copyright license on the specific promoted work automatically reverts to the artiste."
     },
     {
       heading: "§6 — Currency",
-      content: "All financial calculations, payouts, and payments are denominated in the Drop's native currency (selected by the artist at creation). Display currency toggling on the platform is cosmetic only and does not affect payout amounts."
+      content: "All financial calculations, payouts, and payments are denominated in the Drop's native currency (selected by the artiste at creation). Display currency toggling on the platform is cosmetic only and does not affect payout amounts."
     },
     {
       heading: "§7 — Escrow & Ad Spend",
@@ -35,7 +35,7 @@ const THE_NUMBERS = {
     },
     {
       heading: "§8 — Waterfall Priority",
-      content: "License payouts follow this waterfall: (1) License fee recovery for backers who haven't recovered their original license fee, (2) License revenue share for backers who have recovered their fee but haven't reached cap, (3) Copyright on the specific promoted work reverts to artist; artist retains all future revenue. The license never extended beyond the one promoted work."
+      content: "License payouts follow this waterfall: (1) License fee recovery for backers who haven't recovered their original license fee, (2) License revenue share for backers who have recovered their fee but haven't reached cap, (3) Copyright on the specific promoted work reverts to artiste; artiste retains all future revenue. The license never extended beyond the one promoted work."
     },
   ],
 };

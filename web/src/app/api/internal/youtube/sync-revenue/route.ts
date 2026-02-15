@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
   if (authError) return authError;
 
   try {
-    // Find all active drops with their artist's YouTube channel
+    // Find all active drops with their artiste's YouTube channel
     const activeDrops = await db.drop.findMany({
       where: { status: "active" },
       include: {

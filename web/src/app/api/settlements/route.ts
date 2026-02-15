@@ -18,7 +18,7 @@ export async function GET(req: NextRequest) {
     if (dropId) where.dropId = dropId;
     if (status) where.status = status;
 
-    // Artists see settlements for their drops, backers see settlements for drops they've pledged to
+    // Artistes see settlements for their drops, backers see settlements for drops they've pledged to
     if (auth.role === "artist") {
       where.drop = { artistId: auth.userId };
     } else {

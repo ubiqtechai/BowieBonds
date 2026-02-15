@@ -9,7 +9,7 @@ const WATERFALL = [
   { n: "1", t: "Escrow / admin costs", d: "Any fees for maintaining the lockbox account. Typically minimal." },
   { n: "2", t: "License fee recovery", d: "Backers receive their original license fee back first, before any revenue share is distributed." },
   { n: "3", t: "License revenue share", d: "After the license fee is recovered, revenue share continues flowing to backers until the return cap is hit or the license period expires." },
-  { n: "4", t: "Copyright on the work reverts to artist", d: "When backers are made whole (or the license period expires), the exclusive copyright license on the specific promoted work automatically reverts to the artist. The license never extended beyond that one work. Artist retains all future revenue." },
+  { n: "4", t: "Copyright on the work reverts to artiste", d: "When backers are made whole (or the license period expires), the exclusive copyright license on the specific promoted work automatically reverts to the artiste. The license never extended beyond that one work. Artiste retains all future revenue." },
 ];
 
 export default function EconomicsPage() {
@@ -39,18 +39,18 @@ export default function EconomicsPage() {
 
       <Section dark>
         <h2 className="text-3xl font-bold text-bg mb-5">How YouTube AdSense works</h2>
-        <div className="text-sm text-ink-light leading-relaxed max-w-2xl space-y-4">
+        <div className="text-base text-ink-light leading-relaxed max-w-2xl space-y-4">
           <p>When a monetised video plays an ad, the creator earns revenue. YouTube takes ~45% and the creator keeps ~55%. Revenue is measured as RPM (Revenue Per Mille) — how much you earn per 1,000 views.</p>
-          <p>Music content typically generates RPMs between $0.25–$4.00, depending on the audience, genre, and ad market conditions. An artist with 10,000 daily views at $2.00 RPM earns roughly $20/day or $600/month.</p>
-          <p>ZiggyDust tracks this revenue through YouTube&apos;s Analytics API, authenticated via OAuth. The artist grants read-only access. We observe, we don&apos;t touch.</p>
+          <p>Music content typically generates RPMs between $0.25–$4.00, depending on the audience, genre, and ad market conditions. An artiste with 10,000 daily views at $2.00 RPM earns roughly $20/day or $600/month.</p>
+          <p>ZiggyDust tracks this revenue through YouTube&apos;s Analytics API, authenticated via OAuth. The artiste grants read-only access. We observe, we don&apos;t touch.</p>
         </div>
       </Section>
 
       <Section>
         <h2 className="text-3xl font-bold mb-3">The baseline</h2>
-        <div className="text-sm text-ink-mid leading-relaxed max-w-2xl space-y-4 mt-3">
-          <p>Before a drop goes live, we compute the artist&apos;s baseline: the average daily channel-wide YouTube AdSense revenue over the 30 days before campaign activation. This is the &ldquo;before&rdquo; number.</p>
-          <p>Only channel-wide revenue above this baseline counts as uplift — this captures cross-views and discovery of older content driven by the campaign. If an artist&apos;s channel was earning $5/day before the campaign and earns $12/day during, the uplift is $7/day. Backers get their share of the $7 — not the full $12.</p>
+        <div className="text-base text-ink-mid leading-relaxed max-w-2xl space-y-4 mt-3">
+          <p>Before a drop goes live, we compute the artiste&apos;s baseline: the average daily channel-wide YouTube AdSense revenue over the 30 days before campaign activation. This is the &ldquo;before&rdquo; number.</p>
+          <p>Only channel-wide revenue above this baseline counts as uplift — this captures cross-views and discovery of older content driven by the campaign. If an artiste&apos;s channel was earning $5/day before the campaign and earns $12/day during, the uplift is $7/day. Backers get their share of the $7 — not the full $12.</p>
         </div>
       </Section>
 
@@ -82,8 +82,8 @@ export default function EconomicsPage() {
             </div>
           ))}
         </div>
-        <div className="mt-5 p-4 border border-ink-mid text-[13px] text-ink-light leading-relaxed">
-          <strong className="text-bg">Key insight:</strong> In a 6-month license period, only the optimistic scenario approaches cap. Most drops will return a fraction of the cap. Backers should think of this as licensing music IP with a potential upside — not as an investment with guaranteed returns. When cap is reached, the copyright automatically reverts to the artist.
+        <div className="mt-5 p-4 border border-ink-mid text-sm text-ink-light leading-relaxed">
+          <strong className="text-bg">Key insight:</strong> In a 6-month license period, only the optimistic scenario approaches cap. Most drops will return a fraction of the cap. Backers should think of this as licensing music IP with a potential upside — not as an investment with guaranteed returns. When cap is reached, the copyright automatically reverts to the artiste.
         </div>
       </Section>
 
@@ -97,7 +97,7 @@ export default function EconomicsPage() {
               </div>
               <div className="p-3.5 lg:p-5 flex-1">
                 <div className="text-[15px] font-bold mb-1">{s.t}</div>
-                <div className="text-[13px] text-ink-mid">{s.d}</div>
+                <div className="text-sm text-ink-mid">{s.d}</div>
               </div>
             </div>
           ))}

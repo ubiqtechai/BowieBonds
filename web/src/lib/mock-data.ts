@@ -112,7 +112,7 @@ export const MOCK_DROPS: Drop[] = [
     genre: "Indie / Classical Fusion",
     tagline: "where tradition meets the tremolo",
     artistLinkedin: "https://linkedin.com/in/priyasharmamusic",
-    artistHeadline: "Independent Artist · Classical-Electronic Fusion",
+    artistHeadline: "Independent Artiste · Classical-Electronic Fusion",
     yt: { subscribers: 12400, totalViews: 890000, channelAge: "3 years", monthlyViews: 145000, verified: true },
     artistTrack: { campaigns: 1, totalRaised: 95000, paybackRate: 100, avgUplift: 175 },
     adReceipts: [

@@ -54,7 +54,7 @@ export async function POST(req: NextRequest) {
           data: { status: "defaulted" },
         });
 
-        // Update artist track record with default
+        // Update artiste track record with default
         const artistTrack = await db.trackRecord.findUnique({
           where: { userId: settlement.drop.artistId },
         });
@@ -132,7 +132,7 @@ export async function POST(req: NextRequest) {
           });
 
           results.push({ dropId: drop.id, trigger: "oauth_revoked" });
-          // Don't immediately default — give the artist a chance to reconnect
+          // Don't immediately default — give the artiste a chance to reconnect
         }
       }
     }

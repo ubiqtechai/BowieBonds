@@ -15,7 +15,7 @@ export async function GET() {
 
     if (auth.role !== "artist") {
       return NextResponse.json(
-        { error: "Only artists can connect Google Ads" },
+        { error: "Only artistes can connect Google Ads" },
         { status: 403 }
       );
     }

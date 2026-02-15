@@ -4,9 +4,9 @@ import { ToastContainer } from "@/components/shared/toast-container";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "ZiggyDust — Micro-Bowie Bonds for Indie Artists",
+  title: "ZiggyDust — Micro-Bowie Bonds for Indie Artistes",
   description:
-    "Connect indie music artists with backers who fund YouTube ad campaigns. Revenue-share returns tied to real channel performance.",
+    "Connect indie music artistes with backers who fund YouTube ad campaigns. Revenue-share returns tied to real channel performance.",
 };
 
 export default function RootLayout({

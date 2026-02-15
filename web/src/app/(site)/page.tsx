@@ -18,7 +18,7 @@ export default function HomePage() {
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 pb-12 border-b-2 border-ink">
           <div className="max-w-xl">
             <Mono className="text-[10px] text-ink-mid uppercase tracking-[0.2em] block mb-4">
-              YouTube Promotion for Independent Artists
+              YouTube Promotion for Independent Artistes
             </Mono>
             <h1 className="text-4xl lg:text-[52px] font-bold leading-[0.95] tracking-tight mb-4">
               Your music
@@ -75,8 +75,8 @@ export default function HomePage() {
           {[
             {
               n: "01",
-              t: "Artist drops",
-              d: "Artist sets up a YouTube promotion campaign, puts in ≥20% co-pay, sets revenue share terms. One active drop per artist at a time.",
+              t: "Artiste drops",
+              d: "Artiste sets up a YouTube promotion campaign, puts in ≥20% co-pay, sets revenue share terms. One active drop per artiste at a time.",
             },
             {
               n: "02",
@@ -91,7 +91,7 @@ export default function HomePage() {
             {
               n: "04",
               t: "Revenue flows, copyright reverts",
-              d: "YouTube AdSense revenue is tracked via OAuth. Channel-wide uplift above baseline flows to backers. When they're made whole, copyright on the work reverts to the artist.",
+              d: "YouTube AdSense revenue is tracked via OAuth. Channel-wide uplift above baseline flows to backers. When they're made whole, copyright on the work reverts to the artiste.",
             },
           ].map((s, i) => (
             <div
@@ -106,7 +106,7 @@ export default function HomePage() {
                 {s.n}
               </Mono>
               <div className="text-lg font-bold text-bg mb-2">{s.t}</div>
-              <div className="text-[13px] text-ink-light leading-relaxed">
+              <div className="text-sm text-ink-light leading-relaxed">
                 {s.d}
               </div>
             </div>
@@ -125,7 +125,7 @@ export default function HomePage() {
             {[
               {
                 t: "Real identities",
-                d: "Every artist and backer has a mandatory LinkedIn profile. No anons. You know who you're dealing with.",
+                d: "Every artiste and backer has a mandatory LinkedIn profile. No anons. You know who you're dealing with.",
                 icon: "👤",
               },
               {
@@ -140,12 +140,12 @@ export default function HomePage() {
               },
               {
                 t: "20% skin in the game",
-                d: "Artists put in minimum 20% co-pay. First-in, first-loss. They eat before their backers do.",
+                d: "Artistes put in minimum 20% co-pay. First-in, first-loss. They eat before their backers do.",
                 icon: "🎯",
               },
               {
                 t: "Track records",
-                d: "Every artist and backer builds a public history. Past drops, payback rates, average returns — all visible.",
+                d: "Every artiste and backer builds a public history. Past drops, payback rates, average returns — all visible.",
                 icon: "📊",
               },
               {
@@ -162,7 +162,7 @@ export default function HomePage() {
               >
                 <div className="text-xl mb-2">{s.icon}</div>
                 <div className="text-base font-bold mb-1.5">{s.t}</div>
-                <div className="text-[13px] text-ink-mid leading-relaxed">
+                <div className="text-sm text-ink-mid leading-relaxed">
                   {s.d}
                 </div>
               </div>
@@ -181,7 +181,7 @@ export default function HomePage() {
             <div className="text-2xl lg:text-[32px] font-bold text-bg leading-tight mb-3">
               In 1997, David Bowie turned his future royalties into $55 million.
             </div>
-            <div className="text-sm text-ink-light leading-relaxed">
+            <div className="text-base text-ink-light leading-relaxed">
               Bowie Bonds were the first celebrity-backed securities — and the
               intellectual ancestor of what we&apos;re building. Same idea,
               different scale, new technology.

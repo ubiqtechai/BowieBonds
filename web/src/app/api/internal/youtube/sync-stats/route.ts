@@ -5,7 +5,7 @@ import { getValidToken, fetchChannelStats } from "@/lib/youtube";
 
 /**
  * POST /api/internal/youtube/sync-stats
- * Cron: Weekly — refresh channel stats for all artist YouTube channels.
+ * Cron: Weekly — refresh channel stats for all artiste YouTube channels.
  */
 export async function POST(req: NextRequest) {
   const authError = verifyCronAuth(req);

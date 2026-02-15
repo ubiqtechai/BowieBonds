@@ -98,7 +98,7 @@ export default function SignupPage() {
                       : "bg-transparent text-[var(--color-ink)]"
                   }`}
                 >
-                  {r}
+                  {r === "artist" ? "artiste" : r}
                 </button>
               ))}
             </div>
@@ -182,7 +182,7 @@ export default function SignupPage() {
             )}
           </div>
 
-          {/* YouTube Connect (artists only) */}
+          {/* YouTube Connect (artistes only) */}
           {role === "artist" && (
             <div className="mb-5">
               <a
