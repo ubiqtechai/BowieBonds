@@ -4,15 +4,16 @@ import { verifyCronAuth } from "@/lib/cron-auth";
 
 /**
  * POST /api/internal/settlements/compute
- * Cron: 1st of month — calculate monthly uplift & backer share for all active drops.
+ * Cron: 1st of month — calculate monthly uplift & license payout for all active drops.
  *
- * Settlement waterfall:
+ * License payout waterfall:
  * 1. Sum daily uplift for the prior month
- * 2. Apply revenue share % → total backer share
- * 3. Allocate pro-rata to each backer based on pledge proportion
- * 4. Cap enforcement: don't allocate beyond backer's cap
+ * 2. Apply revenue share % → total backer share (license revenue)
+ * 3. Allocate pro-rata to each backer based on license fee proportion
+ * 4. Cap enforcement: don't allocate beyond backer's return cap
  * 5. Redistribute excess to uncapped backers
- * 6. Complete drop if all backers capped
+ * 6. Complete drop if all backers capped → trigger copyright reversion
+ * 7. License period expiry → trigger copyright reversion
  */
 export async function POST(req: NextRequest) {
   const authError = verifyCronAuth(req);
@@ -46,18 +47,21 @@ export async function POST(req: NextRequest) {
     }[] = [];
 
     for (const drop of activeDrops) {
-      // Check tenor expiry
+      // Check license period expiry — copyright reverts to artist
       if (drop.expiresAt && drop.expiresAt <= now) {
         await db.drop.update({
           where: { id: drop.id },
-          data: { status: "completed" },
+          data: {
+            status: "completed",
+            copyrightStatus: "reverted",
+            copyrightRevertedAt: now,
+          },
         });
-        // Mark pledges as completed
         await db.pledge.updateMany({
           where: { dropId: drop.id, status: "active" },
           data: { status: "completed" },
         });
-        results.push({ dropId: drop.id, status: "tenor_expired" });
+        results.push({ dropId: drop.id, status: "license_period_expired_copyright_reverted" });
         continue;
       }
 
@@ -158,11 +162,15 @@ export async function POST(req: NextRequest) {
         });
       }
 
-      // If all backers have reached their cap, complete the drop
+      // If all backers have reached their cap, complete the drop and revert copyright
       if (allCapped) {
         await db.drop.update({
           where: { id: drop.id },
-          data: { status: "completed" },
+          data: {
+            status: "completed",
+            copyrightStatus: "reverted",
+            copyrightRevertedAt: new Date(),
+          },
         });
         await db.pledge.updateMany({
           where: { dropId: drop.id, status: "active" },

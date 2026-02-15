@@ -6,10 +6,10 @@ import { formatCurrency } from "@/lib/currency";
 import { useCurrencyStore } from "@/stores/currency-store";
 
 const WATERFALL = [
-  { n: "1", t: "Escrow admin costs", d: "Any fees for maintaining the lockbox account. Typically minimal." },
-  { n: "2", t: "Backer commitment", d: "Backers receive their original committed amount back first, before any revenue share is distributed." },
-  { n: "3", t: "Revenue share", d: "After the original commitment is returned, revenue share continues flowing to backers until cap or tenor expiry." },
-  { n: "4", t: "Artist retains remainder", d: "Everything above the backer share stays with the artist. Their music, their revenue." },
+  { n: "1", t: "Escrow / admin costs", d: "Any fees for maintaining the lockbox account. Typically minimal." },
+  { n: "2", t: "License fee recovery", d: "Backers receive their original license fee back first, before any revenue share is distributed." },
+  { n: "3", t: "License revenue share", d: "After the license fee is recovered, revenue share continues flowing to backers until the return cap is hit or the license period expires." },
+  { n: "4", t: "Copyright reverts to artist", d: "When backers are made whole (or the license period expires), the exclusive copyright license automatically reverts to the artist. Artist retains all future revenue." },
 ];
 
 export default function EconomicsPage() {
@@ -19,13 +19,13 @@ export default function EconomicsPage() {
   const scenarioRows = [
     ["Budget", fmt(1000), fmt(1000), fmt(1000)],
     ["Co-pay (20%)", fmt(200), fmt(200), fmt(200)],
-    ["Backer pool", fmt(800), fmt(800), fmt(800)],
+    ["License pool", fmt(800), fmt(800), fmt(800)],
     ["Daily uplift", fmt(2), fmt(5), fmt(12)],
     ["Monthly uplift", fmt(60), fmt(150), fmt(360)],
     ["Rev share (25%)", fmt(15) + "/mo", fmt(37.5) + "/mo", fmt(90) + "/mo"],
     ["Cap (1.5x)", fmt(1200), fmt(1200), fmt(1200)],
     ["Time to cap", "80 months", "32 months", "13 months"],
-    ["Tenor (6mo) payout", fmt(90), fmt(225), fmt(540)],
+    ["License period (6mo) payout", fmt(90), fmt(225), fmt(540)],
     ["Backer return", "0.11x", "0.28x", "0.68x"],
   ];
 
@@ -83,7 +83,7 @@ export default function EconomicsPage() {
           ))}
         </div>
         <div className="mt-5 p-4 border border-ink-mid text-[13px] text-ink-light leading-relaxed">
-          <strong className="text-bg">Key insight:</strong> In a 6-month tenor, only the optimistic scenario approaches cap. Most drops will return a fraction of the cap. Backers should think of this as supporting music with a potential upside — not as an investment with expected returns.
+          <strong className="text-bg">Key insight:</strong> In a 6-month license period, only the optimistic scenario approaches cap. Most drops will return a fraction of the cap. Backers should think of this as licensing music IP with a potential upside — not as an investment with guaranteed returns. When cap is reached, the copyright automatically reverts to the artist.
         </div>
       </Section>
 

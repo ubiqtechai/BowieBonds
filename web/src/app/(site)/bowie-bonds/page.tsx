@@ -14,10 +14,10 @@ const TIMELINE = [
 ];
 
 const PROOFS = [
-  ["Creative output has financial value", "A song isn't just art — it generates measurable, recurring revenue. That revenue stream can be the basis for financial instruments."],
-  ["You don't have to sell to monetise", "Bowie didn't sell his catalogue. He raised capital against its future revenue. He kept ownership, got liquidity, and bought back even more rights."],
-  ["Revenue-backed = risk-bounded", "The bonds were backed by actual revenue, not speculation. When the music industry changed, the bonds still paid out — just with more stress."],
-  ["Scale matters less than structure", "Bowie was a superstar, but the structure works at any scale. The key ingredients are: predictable revenue, transparent reporting, and aligned incentives."],
+  ["Creative output has financial value", "A song isn't just art — it generates measurable, recurring revenue. That revenue stream can back a copyright license that funds promotion."],
+  ["You don't have to sell to monetise", "Bowie didn't sell his catalogue. He raised capital against its future revenue. He kept ownership, got liquidity, and bought back even more rights. ZiggyDust artists license their copyright temporarily — it reverts when backers are made whole."],
+  ["Copyright-backed = risk-bounded", "Bowie Bonds were backed by actual royalty revenue. ZiggyDust drops are backed by the copyright itself — if the artist defaults, backers retain the license."],
+  ["Scale matters less than structure", "Bowie was a superstar, but the structure works at any scale. The key ingredients are: a copyright license, transparent reporting, and aligned incentives."],
 ];
 
 export default function BowieBondsPage() {
@@ -76,7 +76,7 @@ export default function BowieBondsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-6">
             <div>
               <Mono className="text-[10px] text-ink-mid uppercase tracking-widest block mb-3">Bowie Bonds (1997)</Mono>
-              {["$55M single issue", "25 albums, 287 songs", "Prudential (institutional)", "10-year maturity", "7.9% annual coupon", "Traditional securitisation"].map((t) => (
+              {["$55M single issue", "25 albums, 287 songs", "Prudential (institutional)", "10-year maturity", "7.9% annual coupon", "Royalty-backed securities"].map((t) => (
                 <div key={t} className="py-2 border-b border-sand text-[13px] text-ink-mid">{t}</div>
               ))}
             </div>
@@ -85,13 +85,13 @@ export default function BowieBondsPage() {
             </div>
             <div>
               <Mono className="text-[10px] text-amber uppercase tracking-widest block mb-3">ZiggyDust (2026)</Mono>
-              {[`${fmt(500)}–${fmt(2500)} per drop`, "1 video per drop", "Individual backers", "4–8 month tenor", "Revenue share on uplift", "Platform-facilitated, no custody"].map((t) => (
+              {[`${fmt(500)}–${fmt(2500)} per drop`, "1 video per drop", "Individual backers", "4–8 month license period", "Revenue share on uplift", "Copyright-backed, auto-revert"].map((t) => (
                 <div key={t} className="py-2 border-b border-sand text-[13px] font-semibold">{t}</div>
               ))}
             </div>
           </div>
           <div className="mt-6 p-4 bg-amber-faint border border-amber/30 text-sm leading-relaxed">
-            <strong>Same DNA, different organism.</strong> Bowie Bonds proved the concept at institutional scale. ZiggyDust applies the same logic — revenue-backed, time-bounded, transparent — to independent artists and individual backers. No banks. No intermediaries. Just music, ads, and math.
+            <strong>Same DNA, different organism.</strong> Bowie Bonds proved the concept at institutional scale. ZiggyDust applies the same logic — copyright-backed, time-bounded, transparent — to independent artists and individual backers. Artists license their copyright temporarily; backers fund promotion against it; copyright reverts when backers are made whole. No banks. No intermediaries. Just music, copyright, and math.
           </div>
         </div>
       </Section>

@@ -4,8 +4,6 @@ import Link from "next/link";
 import { Section } from "@/components/site/section";
 import { Mono } from "@/components/ui/mono";
 import { Button } from "@/components/ui/button";
-import { formatCurrency } from "@/lib/currency";
-import { useCurrencyStore } from "@/stores/currency-store";
 
 const STEPS = [
   {
@@ -16,19 +14,20 @@ const STEPS = [
       "Upload your YouTube video link and connect via OAuth",
       "Set your total budget",
       "Put in your co-pay — minimum 20% of budget",
-      "Set backer terms: revenue share %, return cap, tenor, minimum ticket size",
+      "Set backer terms: revenue share %, return cap, license period, minimum ticket size",
       "Your co-pay goes into the Lockbox first — you eat before backers do",
       "One active drop per artist at a time",
     ],
   },
   {
     n: "02",
-    t: "Backers commit funds",
+    t: "Backers license the copyright",
     dark: true,
     items: [
       "Browse live drops — see artist profiles, YouTube stats (OAuth-verified), and terms",
       "Every backer has a mandatory LinkedIn profile — real people only",
-      "Back drops you believe in. Your funds go into a lockbox and can only become YouTube ads",
+      "Back a drop and receive an exclusive copyright license on the promoted video for the campaign period",
+      "Your funds go into the Lockbox and can only become YouTube ads",
       "See who else is backing — full Backer Wall with names, LinkedIn, track records",
       "Once the goal is hit, the drop goes live",
     ],
@@ -47,14 +46,15 @@ const STEPS = [
   },
   {
     n: "04",
-    t: "Returns flow back",
+    t: "Revenue flows, copyright reverts",
     dark: true,
     items: [
       "Channel-wide YouTube AdSense revenue tracked via OAuth API — daily",
       "Baseline established: 30-day channel average before campaign launch",
       "Only incremental uplift above baseline counts — including cross-views to older content",
-      "Backer's original commitment is returned first, then revenue share (% of channel uplift) flows monthly",
-      "Obligation ends when cap is hit or tenor expires — whichever comes first",
+      "Backer's original license fee is recovered first, then revenue share flows monthly",
+      "When cap is hit or license period expires, copyright automatically reverts to the artist",
+      "If artist defaults, backers retain the exclusive copyright license",
     ],
   },
 ];
@@ -70,7 +70,7 @@ export default function HowPage() {
           How It Works
         </h1>
         <p className="text-base text-ink-mid leading-relaxed max-w-xl">
-          Four steps. Artist creates, backers fund, ads deploy, revenue flows.
+          Four steps. Artist creates, backers license, ads deploy, copyright reverts.
         </p>
       </Section>
 

@@ -28,10 +28,10 @@ export default function HomePage() {
               <em className="text-amber">push.</em>
             </h1>
             <p className="text-base text-ink-mid leading-relaxed max-w-lg">
-              ZiggyDust connects indie artists with backers who fund
-              YouTube ad campaigns. Backers earn returns tied to the
-              campaign&apos;s performance. Artists keep their rights, their
-              music, their independence.
+              ZiggyDust connects indie artists with backers who license
+              their copyright and fund YouTube ad campaigns. Backers earn
+              returns backed by the IP itself. Copyright reverts when
+              backers are made whole.
             </p>
             <div className="flex flex-wrap gap-3 mt-8">
               <Link href="/signup">
@@ -80,8 +80,8 @@ export default function HomePage() {
             },
             {
               n: "02",
-              t: "Backers fund",
-              d: "Real people with real LinkedIn profiles commit funds to the artist's campaign. All money goes into a lockbox.",
+              t: "Backers license",
+              d: "Real people with real LinkedIn profiles license the artist's copyright and fund the campaign. All money goes into a lockbox.",
             },
             {
               n: "03",
@@ -90,8 +90,8 @@ export default function HomePage() {
             },
             {
               n: "04",
-              t: "Revenue flows",
-              d: "YouTube AdSense revenue is tracked via OAuth. Incremental channel-wide uplift above baseline goes to backers — including cross-views to older content.",
+              t: "Revenue flows, copyright reverts",
+              d: "YouTube AdSense revenue is tracked via OAuth. Channel-wide uplift above baseline flows to backers. When they're made whole, copyright reverts to the artist.",
             },
           ].map((s, i) => (
             <div

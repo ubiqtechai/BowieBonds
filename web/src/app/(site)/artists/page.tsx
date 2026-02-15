@@ -10,7 +10,7 @@ const REQUIREMENTS = [
   { t: "A release to promote", d: "One video per drop, one active drop at a time. Could be a single, EP track, music video, lyric video — anything on YouTube." },
   { t: "20% co-pay", d: "You put in at least 20% of the budget. First-in, first-loss. This is your skin in the game." },
   { t: "LinkedIn profile", d: "Real identity required. Your backers can see you. You can see them." },
-  { t: "Revenue share terms", d: "You decide: what % of uplift, what cap (e.g. 1.5x), what tenor (e.g. 6 months). You set the deal." },
+  { t: "Copyright license grant", d: "You grant an exclusive license on the promoted video to backers for the campaign period. It reverts automatically when they're made whole." },
   { t: "Google Ads account", d: "You need a verified Google Ads account. This is where the lockbox funds deploy to." },
 ];
 
@@ -23,7 +23,7 @@ export default function ArtistsPage() {
           Get your music<br /><em className="text-amber">heard.</em>
         </h1>
         <p className="text-base text-ink-mid leading-relaxed max-w-xl">
-          You&apos;ve made something great. Now it needs ears. ZiggyDust funds YouTube promotion for your release — backed by people who believe in your sound.
+          You&apos;ve made something great. Now it needs ears. ZiggyDust funds YouTube promotion for your release — backed by people who license your copyright and believe in your sound.
         </p>
       </Section>
 
@@ -42,10 +42,10 @@ export default function ArtistsPage() {
       <Section>
         <h2 className="text-3xl font-bold mb-5">What you keep</h2>
         <div className="text-[15px] leading-loose text-ink-mid max-w-xl space-y-3">
-          <p><strong className="text-ink">Your rights.</strong> ZiggyDust never touches your IP. No licence transfers, no ownership changes, no creative control.</p>
+          <p><strong className="text-ink">Your copyright — it comes back.</strong> You license your video&apos;s copyright temporarily. It reverts automatically when backers are made whole. Think of it as putting your IP behind the deal — same as Bowie did in 1997.</p>
           <p><strong className="text-ink">Your revenue above the share.</strong> After backers get their cut of the uplift, everything else is yours.</p>
-          <p><strong className="text-ink">Your relationship with fans.</strong> Backers are music people — producers, fellow musicians, supporters. They&apos;re your community, not distant financiers.</p>
-          <p><strong className="text-ink">Your freedom.</strong> Once cap is hit or tenor expires, you&apos;re done. No ongoing obligations.</p>
+          <p><strong className="text-ink">Your community.</strong> Backers are music people — producers, fellow musicians, supporters. They&apos;re licensing your work because they believe in it.</p>
+          <p><strong className="text-ink">Your freedom.</strong> Once cap is hit or the license period expires, you&apos;re done. Copyright reverts, no ongoing obligations.</p>
         </div>
         <Link href="/signup">
           <Button size="lg" className="mt-8">Create your first drop</Button>

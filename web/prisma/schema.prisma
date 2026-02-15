@@ -90,12 +90,14 @@ model Drop {
   minTicket    Int?       @map("min_ticket")
   revSharePct  Decimal    @map("rev_share_pct") @db.Decimal(5, 2)
   capMultiple  Decimal    @map("cap_multiple") @db.Decimal(4, 2)
-  tenorMonths  Int        @map("tenor_months")
-  baselineDaily Int?      @map("baseline_daily")
-  activatedAt  DateTime?  @map("activated_at")
-  expiresAt    DateTime?  @map("expires_at")
-  createdAt    DateTime   @default(now()) @map("created_at")
-  updatedAt    DateTime   @default(now()) @updatedAt @map("updated_at")
+  tenorMonths      Int             @map("tenor_months")
+  baselineDaily    Int?            @map("baseline_daily")
+  copyrightStatus  CopyrightStatus @default(licensed) @map("copyright_status")
+  copyrightRevertedAt DateTime?    @map("copyright_reverted_at")
+  activatedAt      DateTime?       @map("activated_at")
+  expiresAt        DateTime?       @map("expires_at")
+  createdAt        DateTime        @default(now()) @map("created_at")
+  updatedAt        DateTime        @default(now()) @updatedAt @map("updated_at")
 
   artist               User                  @relation(fields: [artistId], references: [id])
   pledges              Pledge[]
@@ -122,7 +124,13 @@ enum DropStatus {
   defaulted
 }
 
-// ─── Pledges (Backer Commitments) ───────────────────────────────────
+enum CopyrightStatus {
+  licensed
+  reverted
+  retained_by_backers
+}
+
+// ─── Pledges (Backer License Fees) ──────────────────────────────────
 model Pledge {
   id        String       @id @default(uuid()) @db.Uuid
   dropId    String       @map("drop_id") @db.Uuid

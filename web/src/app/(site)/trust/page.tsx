@@ -5,6 +5,11 @@ import { Mono } from "@/components/ui/mono";
 
 const LAYERS = [
   {
+    t: "Copyright as Collateral",
+    why: "Promises are easy. Putting your intellectual property on the line is not. When an artist licenses their copyright to the backer pool, they're staking the one thing that matters most — their creative work. This is the enforcement mechanism: if an artist defaults, backers retain the exclusive copyright license.",
+    how: "Artist grants an exclusive license on the promoted video's copyright to the backer pool at drop creation. License persists for the campaign period. Reverts automatically when backers are made whole (cap hit or license period expiry). On default, backers retain the license.",
+  },
+  {
     t: "Mandatory LinkedIn",
     why: "Anonymous money creates bad incentives. When everyone is a real person with a real professional reputation, behaviour changes. You don't stiff someone whose LinkedIn you can see.",
     how: "LinkedIn URL required at signup. Displayed on Backer Wall and Artist profiles. Clickable links — full transparency.",
@@ -26,8 +31,8 @@ const LAYERS = [
   },
   {
     t: "Track records",
-    why: "Past behaviour predicts future behaviour. If an artist has completed 3 drops with 100% payback, that means something. If a backer has backed 5 drops, that means something too.",
-    how: "Every completed drop updates the participant's track record. Visible on profiles and the Backer Wall. Includes: drops completed, payback rate, average uplift, average return.",
+    why: "Past behaviour predicts future behaviour. If an artist has completed 3 drops with 100% payback and copyright reversion, that means something. If a backer has backed 5 drops, that means something too.",
+    how: "Every completed drop updates the participant's track record. Visible on profiles and the Backer Wall. Includes: drops completed, payback rate, copyright reversions, average uplift, average return.",
   },
   {
     t: "Ad receipts",
