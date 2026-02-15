@@ -6,7 +6,7 @@ import { Mono } from "@/components/ui/mono";
 import { Button } from "@/components/ui/button";
 
 const BENEFITS = [
-  ["Copyright-backed", "Your funds aren't just a promise. The artist grants an exclusive copyright license on the promoted video to the backer pool. If the artist defaults, you retain the license."],
+  ["Copyright-backed", "Your funds aren't just a promise. The artist grants an exclusive copyright license on that specific promoted work — and only that work — to the backer pool. If the artist defaults, you retain the license on the work."],
   ["Revenue share on uplift", "You earn a percentage of the incremental channel-wide YouTube revenue above the pre-campaign baseline — including cross-views to older content. Your original license fee is recovered first."],
   ["Capped returns, then copyright reverts", "Every drop has a return cap (e.g. 1.5x or 2.0x). When you're made whole, the copyright automatically reverts to the artist. Clean exit."],
   ["Full transparency", "OAuth-verified YouTube stats, Google Ads receipts with invoice numbers, monthly payout reports. You see everything."],
@@ -15,8 +15,8 @@ const BENEFITS = [
 const RISKS = [
   ["Total loss is possible", "If the YouTube ads don't generate uplift above baseline, your license fee may not be recovered. This is not a guaranteed return."],
   ["Revenue depends on external factors", "YouTube algorithm changes, ad market fluctuations, audience behaviour — none of these are in anyone's control."],
-  ["Artist default risk", "If an artist stops making payments, you retain the copyright license — but monetising it independently may be difficult. Enforcement is through copyright retention and platform exclusion."],
-  ["This is not an investment product", "ZiggyDust facilitates copyright licensing arrangements between artists and backers. This is a commercial IP transaction — not a loan, not equity, not a security. Consult your own legal and financial advisors."],
+  ["Artist default risk", "If an artist stops making payments, you retain the copyright license on the specific promoted work — but monetising it independently may be difficult. Enforcement is through copyright retention and platform exclusion."],
+  ["This is not an investment product", "ZiggyDust facilitates copyright licensing arrangements — scoped to a single promoted work per drop — between artists and backers. This is a commercial IP transaction — not a loan, not equity, not a security. Consult your own legal and financial advisors."],
 ];
 
 export default function BackersPage() {
@@ -28,7 +28,7 @@ export default function BackersPage() {
           Back the music<br />you <em className="text-amber">believe in.</em>
         </h1>
         <p className="text-base text-ink-mid leading-relaxed max-w-xl">
-          License an artist&apos;s copyright. Fund their YouTube promotion. Earn returns backed by the IP itself. Copyright reverts when you&apos;re made whole.
+          License the copyright on a single promoted work. Fund their YouTube promotion. Earn returns backed by the IP itself. Copyright on the work reverts when you&apos;re made whole.
         </p>
       </Section>
 

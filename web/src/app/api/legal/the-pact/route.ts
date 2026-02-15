@@ -11,11 +11,11 @@ const THE_PACT = {
     },
     {
       heading: "§2 — Copyright License Grant",
-      content: "The Artist grants an exclusive license on the promoted video's copyright to the backer pool for the license period. The license covers all copyright-related rights in the specific promoted video only (not the artist's entire channel or catalogue). The license is granted pro-rata to all backers based on their license fee proportion."
+      content: "The Artist grants an exclusive license on the specific promoted work's copyright — and only that work — to the backer pool for the license period. The license covers all copyright-related rights in that one promoted work only. It does not extend to the Artist's channel, catalogue, or any other works. The license is granted pro-rata to all backers based on their license fee proportion."
     },
     {
       heading: "§3 — Backer Rights",
-      content: "Backers (Licensees) are entitled to: (a) pro-rata share of the exclusive copyright license on the promoted video, (b) pro-rata share of monthly license revenue (uplift payments) based on their license fee proportion, (c) transparent access to revenue data via the platform, (d) cap-limited returns as specified in the Drop terms, (e) retention of the copyright license in the event of artist default."
+      content: "Backers (Licensees) are entitled to: (a) pro-rata share of the exclusive copyright license on the specific promoted work, (b) pro-rata share of monthly license revenue (uplift payments) based on their license fee proportion, (c) transparent access to revenue data via the platform, (d) cap-limited returns as specified in the Drop terms, (e) retention of the copyright license on the work in the event of artist default."
     },
     {
       heading: "§4 — Co-Pay Structure",
@@ -27,11 +27,11 @@ const THE_PACT = {
     },
     {
       heading: "§6 — Copyright Reversion",
-      content: "The exclusive copyright license automatically reverts to the Artist upon the earlier of: (a) all backers reaching their return cap, or (b) the license period expiring. Upon reversion, the Artist regains full, unencumbered rights to the promoted video. No action is required from either party — reversion is automatic."
+      content: "The exclusive copyright license on the specific promoted work automatically reverts to the Artist upon the earlier of: (a) all backers reaching their return cap, or (b) the license period expiring. Upon reversion, the Artist regains full, unencumbered rights to that work. The license never extended beyond the one promoted work. No action is required from either party — reversion is automatic."
     },
     {
       heading: "§7 — Termination & Default",
-      content: "The agreement terminates upon: (a) copyright reversion per §6, (b) mutual written agreement, or (c) a default event as defined in the House Rules. On default, backers retain the exclusive copyright license on the promoted video. Default events include: missed payments (>30 days overdue), OAuth token revocation, content deletion, and material misrepresentation."
+      content: "The agreement terminates upon: (a) copyright reversion per §6, (b) mutual written agreement, or (c) a default event as defined in the House Rules. On default, backers retain the exclusive copyright license on the specific promoted work. Default events include: missed payments (>30 days overdue), OAuth token revocation, content deletion, and material misrepresentation."
     },
   ],
 };

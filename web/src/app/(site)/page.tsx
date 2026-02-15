@@ -81,7 +81,7 @@ export default function HomePage() {
             {
               n: "02",
               t: "Backers license",
-              d: "Real people with real LinkedIn profiles license the artist's copyright and fund the campaign. All money goes into a lockbox.",
+              d: "Real people with real LinkedIn profiles license the copyright on the specific promoted work and fund the campaign. All money goes into a lockbox.",
             },
             {
               n: "03",
@@ -91,7 +91,7 @@ export default function HomePage() {
             {
               n: "04",
               t: "Revenue flows, copyright reverts",
-              d: "YouTube AdSense revenue is tracked via OAuth. Channel-wide uplift above baseline flows to backers. When they're made whole, copyright reverts to the artist.",
+              d: "YouTube AdSense revenue is tracked via OAuth. Channel-wide uplift above baseline flows to backers. When they're made whole, copyright on the work reverts to the artist.",
             },
           ].map((s, i) => (
             <div

@@ -15,7 +15,7 @@ const HOUSE_RULES = {
     },
     {
       heading: "§3 — Copyright Licensing Agreements",
-      content: "Each Drop constitutes a copyright licensing agreement between the Artist (Licensor) and participating Backers (Licensees). The Artist grants an exclusive license on the promoted video's copyright to the backer pool for the license period. The terms (revenue share %, return cap, license period) are set by the artist and accepted by backers through their license fee commitment."
+      content: "Each Drop constitutes a copyright licensing agreement between the Artist (Licensor) and participating Backers (Licensees). The Artist grants an exclusive license on the specific promoted work's copyright — and only that work, not the Artist's channel or catalogue — to the backer pool for the license period. The terms (revenue share %, return cap, license period) are set by the artist and accepted by backers through their license fee commitment."
     },
     {
       heading: "§4 — Revenue Tracking",
@@ -27,7 +27,7 @@ const HOUSE_RULES = {
     },
     {
       heading: "§6 — Default Events",
-      content: "Default triggers include: missed payments (>30 days overdue), OAuth token revocation, content deletion, and material misrepresentation. On default, backers retain the exclusive copyright license on the promoted video. Default events are recorded permanently on the user's track record."
+      content: "Default triggers include: missed payments (>30 days overdue), OAuth token revocation, content deletion, and material misrepresentation. On default, backers retain the exclusive copyright license on the specific promoted work. Default events are recorded permanently on the user's track record."
     },
     {
       heading: "§7 — Dispute Resolution",
@@ -43,7 +43,7 @@ const HOUSE_RULES = {
     },
     {
       heading: "§10 — Copyright Reversion",
-      content: "Upon the earlier of: (a) all backers reaching their return cap, or (b) the license period expiring, the exclusive copyright license on the promoted video automatically reverts to the Artist. No action is required from either party. Upon reversion, the Artist regains full, unencumbered rights to the promoted video. If the Artist defaults under §6, the copyright license is retained by the backer pool."
+      content: "Upon the earlier of: (a) all backers reaching their return cap, or (b) the license period expiring, the exclusive copyright license on the specific promoted work automatically reverts to the Artist. No action is required from either party. Upon reversion, the Artist regains full, unencumbered rights to that work. The license never extended beyond the one promoted work. If the Artist defaults under §6, the copyright license on the work is retained by the backer pool."
     },
   ],
 };

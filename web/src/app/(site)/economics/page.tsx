@@ -9,7 +9,7 @@ const WATERFALL = [
   { n: "1", t: "Escrow / admin costs", d: "Any fees for maintaining the lockbox account. Typically minimal." },
   { n: "2", t: "License fee recovery", d: "Backers receive their original license fee back first, before any revenue share is distributed." },
   { n: "3", t: "License revenue share", d: "After the license fee is recovered, revenue share continues flowing to backers until the return cap is hit or the license period expires." },
-  { n: "4", t: "Copyright reverts to artist", d: "When backers are made whole (or the license period expires), the exclusive copyright license automatically reverts to the artist. Artist retains all future revenue." },
+  { n: "4", t: "Copyright on the work reverts to artist", d: "When backers are made whole (or the license period expires), the exclusive copyright license on the specific promoted work automatically reverts to the artist. The license never extended beyond that one work. Artist retains all future revenue." },
 ];
 
 export default function EconomicsPage() {

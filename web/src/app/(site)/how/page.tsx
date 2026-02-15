@@ -26,7 +26,7 @@ const STEPS = [
     items: [
       "Browse live drops — see artist profiles, YouTube stats (OAuth-verified), and terms",
       "Every backer has a mandatory LinkedIn profile — real people only",
-      "Back a drop and receive an exclusive copyright license on the promoted video for the campaign period",
+      "Back a drop and receive an exclusive copyright license on that specific promoted work only — not the artist's channel or catalogue",
       "Your funds go into the Lockbox and can only become YouTube ads",
       "See who else is backing — full Backer Wall with names, LinkedIn, track records",
       "Once the goal is hit, the drop goes live",
@@ -53,8 +53,8 @@ const STEPS = [
       "Baseline established: 30-day channel average before campaign launch",
       "Only incremental uplift above baseline counts — including cross-views to older content",
       "Backer's original license fee is recovered first, then revenue share flows monthly",
-      "When cap is hit or license period expires, copyright automatically reverts to the artist",
-      "If artist defaults, backers retain the exclusive copyright license",
+      "When cap is hit or license period expires, copyright on the work automatically reverts to the artist",
+      "If artist defaults, backers retain the exclusive copyright license on that specific work",
     ],
   },
 ];

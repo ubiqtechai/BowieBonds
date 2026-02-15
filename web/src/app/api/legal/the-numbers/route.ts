@@ -23,7 +23,7 @@ const THE_NUMBERS = {
     },
     {
       heading: "§5 — Cap Enforcement & Copyright Reversion",
-      content: "Each backer's cumulative receipts are capped at License Fee × Cap Multiple. Once a backer reaches their cap, their pro-rata share is redistributed to remaining backers. When all backers are capped, the Drop is marked as completed and the copyright license automatically reverts to the artist."
+      content: "Each backer's cumulative receipts are capped at License Fee × Cap Multiple. Once a backer reaches their cap, their pro-rata share is redistributed to remaining backers. When all backers are capped, the Drop is marked as completed and the copyright license on the specific promoted work automatically reverts to the artist."
     },
     {
       heading: "§6 — Currency",
@@ -35,7 +35,7 @@ const THE_NUMBERS = {
     },
     {
       heading: "§8 — Waterfall Priority",
-      content: "License payouts follow this waterfall: (1) License fee recovery for backers who haven't recovered their original license fee, (2) License revenue share for backers who have recovered their fee but haven't reached cap, (3) Copyright reverts to artist; artist retains all future revenue."
+      content: "License payouts follow this waterfall: (1) License fee recovery for backers who haven't recovered their original license fee, (2) License revenue share for backers who have recovered their fee but haven't reached cap, (3) Copyright on the specific promoted work reverts to artist; artist retains all future revenue. The license never extended beyond the one promoted work."
     },
   ],
 };
