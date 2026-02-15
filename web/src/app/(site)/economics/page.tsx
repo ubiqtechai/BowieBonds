@@ -7,8 +7,8 @@ import { useCurrencyStore } from "@/stores/currency-store";
 
 const WATERFALL = [
   { n: "1", t: "Escrow admin costs", d: "Any fees for maintaining the lockbox account. Typically minimal." },
-  { n: "2", t: "Loan principal", d: "Before any interest, backers get their original loan amount returned first." },
-  { n: "3", t: "Interest (revenue share)", d: "After principal is repaid, the revenue share continues as interest until cap or tenor expiry." },
+  { n: "2", t: "Backer commitment", d: "Backers receive their original committed amount back first, before any revenue share is distributed." },
+  { n: "3", t: "Revenue share", d: "After the original commitment is returned, revenue share continues flowing to backers until cap or tenor expiry." },
   { n: "4", t: "Artist retains remainder", d: "Everything above the backer share stays with the artist. Their music, their revenue." },
 ];
 

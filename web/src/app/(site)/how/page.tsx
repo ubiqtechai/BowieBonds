@@ -23,12 +23,12 @@ const STEPS = [
   },
   {
     n: "02",
-    t: "Backers loan funds",
+    t: "Backers commit funds",
     dark: true,
     items: [
       "Browse live drops — see artist profiles, YouTube stats (OAuth-verified), and terms",
       "Every backer has a mandatory LinkedIn profile — real people only",
-      "Loan funds to drops you believe in. Your money is a performance-linked loan to the artist",
+      "Back drops you believe in. Your funds go into a lockbox and can only become YouTube ads",
       "See who else is backing — full Backer Wall with names, LinkedIn, track records",
       "Once the goal is hit, the drop goes live",
     ],
@@ -47,13 +47,13 @@ const STEPS = [
   },
   {
     n: "04",
-    t: "Interest flows back",
+    t: "Returns flow back",
     dark: true,
     items: [
       "Channel-wide YouTube AdSense revenue tracked via OAuth API — daily",
       "Baseline established: 30-day channel average before campaign launch",
       "Only incremental uplift above baseline counts — including cross-views to older content",
-      "Artist repays loan principal first, then pays interest (share % of channel uplift) monthly",
+      "Backer's original commitment is returned first, then revenue share (% of channel uplift) flows monthly",
       "Obligation ends when cap is hit or tenor expires — whichever comes first",
     ],
   },

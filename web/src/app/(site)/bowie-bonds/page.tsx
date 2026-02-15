@@ -15,7 +15,7 @@ const TIMELINE = [
 
 const PROOFS = [
   ["Creative output has financial value", "A song isn't just art — it generates measurable, recurring revenue. That revenue stream can be the basis for financial instruments."],
-  ["You don't have to sell to monetise", "Bowie didn't sell his catalogue. He borrowed against it. He kept ownership, got liquidity, and bought back even more rights."],
+  ["You don't have to sell to monetise", "Bowie didn't sell his catalogue. He raised capital against its future revenue. He kept ownership, got liquidity, and bought back even more rights."],
   ["Revenue-backed = risk-bounded", "The bonds were backed by actual revenue, not speculation. When the music industry changed, the bonds still paid out — just with more stress."],
   ["Scale matters less than structure", "Bowie was a superstar, but the structure works at any scale. The key ingredients are: predictable revenue, transparent reporting, and aligned incentives."],
 ];

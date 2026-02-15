@@ -19,7 +19,7 @@ const THE_NUMBERS = {
     },
     {
       heading: "§4 — Pro-Rata Allocation",
-      content: "Each backer's share of the monthly settlement = (Backer's Pledge / Total Pledged) × Monthly Settlement Amount. Principal recovery is prioritized: the first dollars returned count toward principal recovery before being counted as return."
+      content: "Each backer's share of the monthly settlement = (Backer's Pledge / Total Pledged) × Monthly Settlement Amount. Original commitment recovery is prioritized: the first funds returned count toward commitment recovery before being counted as revenue share."
     },
     {
       heading: "§5 — Cap Enforcement",
@@ -35,7 +35,7 @@ const THE_NUMBERS = {
     },
     {
       heading: "§8 — Waterfall Priority",
-      content: "Settlement payments follow this waterfall: (1) Principal recovery for backers who haven't recovered their pledge amount, (2) Return payments for backers who have recovered principal but haven't reached cap, (3) Excess retained by artist."
+      content: "Settlement payments follow this waterfall: (1) Original commitment recovery for backers who haven't recovered their pledged amount, (2) Revenue share payments for backers who have recovered their commitment but haven't reached cap, (3) Remainder retained by artist."
     },
   ],
 };

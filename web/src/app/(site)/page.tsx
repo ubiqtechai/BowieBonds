@@ -28,8 +28,8 @@ export default function HomePage() {
               <em className="text-amber">push.</em>
             </h1>
             <p className="text-base text-ink-mid leading-relaxed max-w-lg">
-              ZiggyDust connects indie artists with backers who loan funds for
-              YouTube ad campaigns. Backers earn interest tied to the
+              ZiggyDust connects indie artists with backers who fund
+              YouTube ad campaigns. Backers earn returns tied to the
               campaign&apos;s performance. Artists keep their rights, their
               music, their independence.
             </p>
@@ -80,8 +80,8 @@ export default function HomePage() {
             },
             {
               n: "02",
-              t: "Backers loan",
-              d: "Real people with real LinkedIn profiles loan funds to the artist. All money goes into a lockbox.",
+              t: "Backers fund",
+              d: "Real people with real LinkedIn profiles commit funds to the artist's campaign. All money goes into a lockbox.",
             },
             {
               n: "03",

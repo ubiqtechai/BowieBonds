@@ -37,6 +37,10 @@ const HOUSE_RULES = {
       heading: "§8 — Limitation of Liability",
       content: "ZiggyDust is not liable for YouTube API data accuracy, advertiser payment delays, or changes to YouTube's monetization policies. Users acknowledge that promotion outcomes are inherently uncertain."
     },
+    {
+      heading: "§9 — Regulatory Characterisation",
+      content: "ZiggyDust facilitates commercial promotion underwriting arrangements between artists and backers. For the purposes of applicable financial regulations, backer commitments may be characterised as performance-linked facilities governed under peer-to-peer frameworks in partnership with registered financial services providers. ZiggyDust is not a lender, deposit-taker, investment advisor, or securities platform. Escrow services are provided through a registered partner. Users are encouraged to consult their own legal and financial advisors."
+    },
   ],
 };
 

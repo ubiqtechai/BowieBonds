@@ -44,7 +44,7 @@ export default function ArtistsPage() {
         <div className="text-[15px] leading-loose text-ink-mid max-w-xl space-y-3">
           <p><strong className="text-ink">Your rights.</strong> ZiggyDust never touches your IP. No licence transfers, no ownership changes, no creative control.</p>
           <p><strong className="text-ink">Your revenue above the share.</strong> After backers get their cut of the uplift, everything else is yours.</p>
-          <p><strong className="text-ink">Your relationship with fans.</strong> Backers are music people — investors, producers, fellow musicians. They&apos;re your community, not your creditors.</p>
+          <p><strong className="text-ink">Your relationship with fans.</strong> Backers are music people — producers, fellow musicians, supporters. They&apos;re your community, not distant financiers.</p>
           <p><strong className="text-ink">Your freedom.</strong> Once cap is hit or tenor expires, you&apos;re done. No ongoing obligations.</p>
         </div>
         <Link href="/signup">
