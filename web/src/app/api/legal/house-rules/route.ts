@@ -1,0 +1,45 @@
+import { NextResponse } from "next/server";
+
+const HOUSE_RULES = {
+  title: "House Rules",
+  subtitle: "Platform Terms of Service",
+  version: "1.0",
+  sections: [
+    {
+      heading: "§1 — Platform Role",
+      content: "ZiggyDust is a facilitator that connects artists with backers for YouTube promotion campaigns. The platform does not custody funds, provide financial advice, or guarantee returns. All transactions occur directly between parties."
+    },
+    {
+      heading: "§2 — Identity Verification",
+      content: "All users must provide a valid LinkedIn profile URL. Artists must connect their YouTube channel via OAuth. Anonymous participation is not permitted. Users represent that all information provided is accurate and current."
+    },
+    {
+      heading: "§3 — Promotion Agreements",
+      content: "Each Drop constitutes a promotion underwriting agreement between the artist and participating backers. The terms (revenue share %, cap multiple, tenor) are set by the artist and accepted by backers through their pledge commitment."
+    },
+    {
+      heading: "§4 — Revenue Tracking",
+      content: "Revenue is tracked via YouTube Analytics API using read-only OAuth access. The baseline is computed as the 30-day average daily channel-wide revenue before activation. Only positive uplift above baseline counts toward backer returns."
+    },
+    {
+      heading: "§5 — Settlement Obligations",
+      content: "Artists are obligated to make monthly settlement payments based on channel-wide revenue uplift. Settlements are due within 15 days of each month-end. Failure to pay within 30 days constitutes a default event."
+    },
+    {
+      heading: "§6 — Default Events",
+      content: "Default triggers include: missed payments (>30 days overdue), OAuth token revocation, content deletion, and material misrepresentation. Default events are recorded permanently on the user's track record."
+    },
+    {
+      heading: "§7 — Dispute Resolution",
+      content: "Either party may dispute a settlement calculation. Disputes are reviewed by the platform within 7 business days. The platform's determination based on YouTube API data is final."
+    },
+    {
+      heading: "§8 — Limitation of Liability",
+      content: "ZiggyDust is not liable for YouTube API data accuracy, advertiser payment delays, or changes to YouTube's monetization policies. Users acknowledge that promotion outcomes are inherently uncertain."
+    },
+  ],
+};
+
+export async function GET() {
+  return NextResponse.json(HOUSE_RULES);
+}

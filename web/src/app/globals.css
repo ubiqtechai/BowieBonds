@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* === ZiggyDust Color Palette === */
+  --color-bg: #F5F0E8;
+  --color-warm: #EDE6D8;
+  --color-sand: #D9CFC0;
+  --color-ink: #1A1814;
+  --color-ink-soft: #3D3832;
+  --color-ink-mid: #6B6358;
+  --color-ink-light: #9A9285;
+  --color-amber: #C8762D;
+  --color-amber-light: #E8A654;
+  --color-amber-faint: #F5E6D0;
+  --color-red: #C44B3F;
+  --color-red-faint: #FCEAE8;
+  --color-green: #3A7D5C;
+  --color-green-faint: #E5F2EC;
+  --color-violet: #6B5CA5;
+  --color-white: #FFFFFF;
+
+  /* === Typography === */
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+
+  /* === Spacing Scale === */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+  --spacing-4xl: 80px;
+}
+
+/* === Global Reset & Base === */
+* {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* === Brutalist Border Utilities === */
+.border-brutal {
+  border: 2px solid var(--color-ink);
+}
+
+.border-brutal-light {
+  border: 1px solid var(--color-sand);
+}
+
+/* === Monospace Labels === */
+.label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-mid);
+}
+
+/* === Section Backgrounds === */
+.sec-cream {
+  background: var(--color-bg);
+}
+
+.sec-dark {
+  background: var(--color-ink);
+  color: var(--color-bg);
+}
+
+.sec-warm {
+  background: var(--color-warm);
+}
+
+/* === Scrollbar Styling === */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-warm);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-sand);
+}
+
+/* === Focus Styles (Accessibility) === */
+:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 2px;
+}
+
+/* === Selection === */
+::selection {
+  background: var(--color-amber-faint);
+  color: var(--color-ink);
+}
+
+/* === Animations === */
+@keyframes slide-in-right {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.animate-in {
+  animation: slide-in-right 0.2s ease-out;
+}

@@ -1,0 +1,307 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── Users ───────────────────────────────────────────────────────────
+model User {
+  id              String   @id @default(uuid()) @db.Uuid
+  email           String   @unique
+  passwordHash    String   @map("password_hash")
+  fullName        String   @map("full_name")
+  role            Role
+  linkedinUrl     String   @map("linkedin_url")
+  linkedinHeadline String? @map("linkedin_headline")
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @default(now()) @updatedAt @map("updated_at")
+
+  youtubeChannel       YoutubeChannel?
+  googleAdsAccount     GoogleAdsAccount?
+  drops                Drop[]
+  pledges              Pledge[]
+  trackRecord          TrackRecord?
+  agreementAcceptances AgreementAcceptance[]
+
+  @@map("users")
+}
+
+enum Role {
+  artist
+  backer
+}
+
+// ─── YouTube Channels (Artists Only) ─────────────────────────────────
+model YoutubeChannel {
+  id           String    @id @default(uuid()) @db.Uuid
+  userId       String    @unique @map("user_id") @db.Uuid
+  channelId    String    @unique @map("channel_id")
+  accessToken  String    @map("access_token")
+  refreshToken String    @map("refresh_token")
+  tokenExpires DateTime? @map("token_expires")
+  subscribers  Int?
+  totalViews   BigInt?   @map("total_views")
+  monthlyViews Int?      @map("monthly_views")
+  channelAge   String?   @map("channel_age")
+  yppActive    Boolean   @default(false) @map("ypp_active")
+  verified     Boolean   @default(false)
+  lastSynced   DateTime? @map("last_synced")
+  createdAt    DateTime  @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("youtube_channels")
+}
+
+// ─── Google Ads Accounts (Artists Only) ──────────────────────────────
+model GoogleAdsAccount {
+  id           String   @id @default(uuid()) @db.Uuid
+  userId       String   @unique @map("user_id") @db.Uuid
+  customerId   String   @map("customer_id")
+  accessToken  String   @map("access_token")
+  refreshToken String   @map("refresh_token")
+  verified     Boolean  @default(false)
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("google_ads_accounts")
+}
+
+// ─── Drops (Campaigns) ──────────────────────────────────────────────
+model Drop {
+  id           String     @id @default(uuid()) @db.Uuid
+  dropNumber   String     @unique @map("drop_number")
+  artistId     String     @map("artist_id") @db.Uuid
+  title        String
+  genre        String?
+  tagline      String?
+  videoUrl     String     @map("video_url")
+  videoId      String     @map("video_id")
+  currency     Currency   @default(USD)
+  status       DropStatus @default(draft)
+  totalBudget  Int        @map("total_budget")
+  artistCopay  Int        @map("artist_copay")
+  backerGoal   Int        @map("backer_goal")
+  minTicket    Int?       @map("min_ticket")
+  revSharePct  Decimal    @map("rev_share_pct") @db.Decimal(5, 2)
+  capMultiple  Decimal    @map("cap_multiple") @db.Decimal(4, 2)
+  tenorMonths  Int        @map("tenor_months")
+  baselineDaily Int?      @map("baseline_daily")
+  activatedAt  DateTime?  @map("activated_at")
+  expiresAt    DateTime?  @map("expires_at")
+  createdAt    DateTime   @default(now()) @map("created_at")
+  updatedAt    DateTime   @default(now()) @updatedAt @map("updated_at")
+
+  artist               User                  @relation(fields: [artistId], references: [id])
+  pledges              Pledge[]
+  revenueObservations  RevenueObservation[]
+  baselineSnapshot     BaselineSnapshot?
+  adDeployments        AdDeployment[]
+  settlements          Settlement[]
+  agreementAcceptances AgreementAcceptance[]
+  defaultEvents        DefaultEvent[]
+
+  @@map("drops")
+}
+
+enum Currency {
+  USD
+  INR
+}
+
+enum DropStatus {
+  draft
+  funding
+  active
+  completed
+  defaulted
+}
+
+// ─── Pledges (Backer Commitments) ───────────────────────────────────
+model Pledge {
+  id        String       @id @default(uuid()) @db.Uuid
+  dropId    String       @map("drop_id") @db.Uuid
+  backerId  String       @map("backer_id") @db.Uuid
+  amount    Int
+  status    PledgeStatus @default(committed)
+  createdAt DateTime     @default(now()) @map("created_at")
+
+  drop                  Drop                   @relation(fields: [dropId], references: [id])
+  backer                User                   @relation(fields: [backerId], references: [id])
+  settlementAllocations SettlementAllocation[]
+
+  @@unique([dropId, backerId])
+  @@map("pledges")
+}
+
+enum PledgeStatus {
+  committed
+  active
+  completed
+  withdrawn
+}
+
+// ─── Revenue Observations ───────────────────────────────────────────
+model RevenueObservation {
+  id              String   @id @default(uuid()) @db.Uuid
+  dropId          String   @map("drop_id") @db.Uuid
+  observationDate DateTime @map("observation_date") @db.Date
+  grossRevenue    Int      @map("gross_revenue")
+  estimatedUplift Int?     @map("estimated_uplift")
+  source          String   @default("youtube_api")
+  rawResponse     Json?    @map("raw_response")
+  createdAt       DateTime @default(now()) @map("created_at")
+
+  drop Drop @relation(fields: [dropId], references: [id])
+
+  @@unique([dropId, observationDate])
+  @@map("revenue_observations")
+}
+
+// ─── Baseline Snapshots ─────────────────────────────────────────────
+model BaselineSnapshot {
+  id          String   @id @default(uuid()) @db.Uuid
+  dropId      String   @unique @map("drop_id") @db.Uuid
+  periodStart DateTime @map("period_start") @db.Date
+  periodEnd   DateTime @map("period_end") @db.Date
+  dailyValues Json     @map("daily_values")
+  computedAvg Int      @map("computed_avg")
+  computedAt  DateTime @default(now()) @map("computed_at")
+
+  drop Drop @relation(fields: [dropId], references: [id])
+
+  @@map("baseline_snapshots")
+}
+
+// ─── Ad Deployments ─────────────────────────────────────────────────
+model AdDeployment {
+  id               String   @id @default(uuid()) @db.Uuid
+  dropId           String   @map("drop_id") @db.Uuid
+  deployedAt       DateTime @map("deployed_at") @db.Date
+  adType           AdType   @map("ad_type")
+  spend            Int
+  impressions      Int?
+  views            Int?
+  ctr              Decimal? @db.Decimal(5, 2)
+  googleInvoiceRef String?  @map("google_invoice_ref")
+  createdAt        DateTime @default(now()) @map("created_at")
+
+  drop Drop @relation(fields: [dropId], references: [id])
+
+  @@map("ad_deployments")
+}
+
+enum AdType {
+  pre_roll
+  discovery
+  shorts
+  bumper
+}
+
+// ─── Settlements ────────────────────────────────────────────────────
+model Settlement {
+  id            String           @id @default(uuid()) @db.Uuid
+  dropId        String           @map("drop_id") @db.Uuid
+  periodMonth   String           @map("period_month")
+  totalRevenue  Int              @map("total_revenue")
+  baselineTotal Int              @map("baseline_total")
+  uplift        Int
+  backerShare   Int              @map("backer_share")
+  status        SettlementStatus @default(pending)
+  dueDate       DateTime         @map("due_date") @db.Date
+  paidAt        DateTime?        @map("paid_at")
+  paymentRef    String?          @map("payment_ref")
+  createdAt     DateTime         @default(now()) @map("created_at")
+
+  drop        Drop                   @relation(fields: [dropId], references: [id])
+  allocations SettlementAllocation[]
+
+  @@map("settlements")
+}
+
+enum SettlementStatus {
+  pending
+  paid
+  overdue
+  disputed
+}
+
+// ─── Settlement Allocations ─────────────────────────────────────────
+model SettlementAllocation {
+  id           String   @id @default(uuid()) @db.Uuid
+  settlementId String   @map("settlement_id") @db.Uuid
+  pledgeId     String   @map("pledge_id") @db.Uuid
+  amount       Int
+  cumulative   Int
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  settlement Settlement @relation(fields: [settlementId], references: [id])
+  pledge     Pledge     @relation(fields: [pledgeId], references: [id])
+
+  @@map("settlement_allocations")
+}
+
+// ─── Track Records ──────────────────────────────────────────────────
+model TrackRecord {
+  userId         String   @id @map("user_id") @db.Uuid
+  role           Role
+  dropsCompleted Int      @default(0) @map("drops_completed")
+  totalRaised    Int      @default(0) @map("total_raised")
+  totalBacked    Int      @default(0) @map("total_backed")
+  paybackRate    Decimal  @default(0) @map("payback_rate") @db.Decimal(5, 2)
+  avgUplift      Decimal  @default(0) @map("avg_uplift") @db.Decimal(5, 2)
+  avgReturn      Decimal  @default(0) @map("avg_return") @db.Decimal(4, 2)
+  updatedAt      DateTime @default(now()) @updatedAt @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("track_records")
+}
+
+// ─── Agreement Acceptances ──────────────────────────────────────────
+model AgreementAcceptance {
+  id            String        @id @default(uuid()) @db.Uuid
+  userId        String        @map("user_id") @db.Uuid
+  dropId        String?       @map("drop_id") @db.Uuid
+  agreementType AgreementType @map("agreement_type")
+  acceptedAt    DateTime      @default(now()) @map("accepted_at")
+  ipAddress     String?       @map("ip_address")
+
+  user User  @relation(fields: [userId], references: [id])
+  drop Drop? @relation(fields: [dropId], references: [id])
+
+  @@unique([userId, dropId, agreementType])
+  @@map("agreement_acceptances")
+}
+
+enum AgreementType {
+  house_rules
+  the_pact
+  the_numbers
+}
+
+// ─── Default Events ─────────────────────────────────────────────────
+model DefaultEvent {
+  id          String         @id @default(uuid()) @db.Uuid
+  dropId      String         @map("drop_id") @db.Uuid
+  triggerType DefaultTrigger @map("trigger_type")
+  detectedAt  DateTime       @default(now()) @map("detected_at")
+  resolvedAt  DateTime?      @map("resolved_at")
+  notes       String?
+
+  drop Drop @relation(fields: [dropId], references: [id])
+
+  @@map("default_events")
+}
+
+enum DefaultTrigger {
+  missed_payment
+  oauth_revoked
+  content_deleted
+  misrepresentation
+}
